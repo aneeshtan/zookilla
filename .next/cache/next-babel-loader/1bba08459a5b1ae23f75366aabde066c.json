@@ -1,0 +1,1 @@
+{"ast":null,"code":"// Shared web socket\nimport io from \"socket.io-client\"; // const ENDPOINT = 'http://localhost:5000/'\n\nvar ENDPOINT = \"https://name-place-animal-thing-server-60a49bfac610.herokuapp.com/\";\nvar socket = io(ENDPOINT);\nexport { socket };","map":null,"metadata":{},"sourceType":"module"}
