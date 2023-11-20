@@ -164,7 +164,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_2___default.a {
       charset: "utf-8"
     }), __jsx("link", {
       rel: "icon",
-      href: "./favicon.ico"
+      href: "%PUBLIC_URL%/favicon.ico"
     }), __jsx("meta", {
       name: "viewport",
       content: "width=device-width, initial-scale=1"
