@@ -51,10 +51,10 @@ const InputTable = ({ sendResponse, timerValue, categories }) => {
           }} />
         </span>)}
       </TableContainer>
-      <Button onClick={(event) => {
+      <Button style={{ background: 'red' }} onClick={(event) => {
         event.preventDefault()
         sendResponse(response)
-      }}>Submit Response</Button>
+      }}>🚌 Stop the Bus</Button>
     </form>
   </Paper>
 }

@@ -39,9 +39,9 @@ export default class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
 
-          <meta name="title" content="Name, Place, Animal, Thing | Online Multiplayer"></meta>
+          <meta name="title" content="Zookilla games"></meta>
           <meta name="description"
-            content="Play 'Name, Place, Animal, Thing' online with friends! The iconic game has moved from our school notebooks to the online world. You can add additional categories besides name, place, animal and thing. Play with up to 10 of your friends online, from anywhere in the world! Variations of the game are called 'Boy, Girl, Fruit, Flower' and 'Petit Bac' or 'Petit Baccalauréat' in French"></meta>
+            content="Play zookilla with your friends"></meta>
        </Head>
        <body style={{ backgroundColor: '#000', color: '#fff', margin: 0, padding: 0, fontFamily: 'Schoolbell, sans-serif' }}>
           <style jsx>{`

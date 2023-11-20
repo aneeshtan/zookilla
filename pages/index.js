@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Name, Place, Animal, Thing! | Online Multiplayer Game</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Zookilla! | Online Multiplayer Game</title>
+        <link rel="icon" href="https://zookilla.com/favicon.ico" />
       </Head>
 
       <main>
