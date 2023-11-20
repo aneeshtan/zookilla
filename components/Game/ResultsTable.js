@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Button, Spinner, FlexColumn, FlexContainer } from '../StyledComponents'
 import theme from '../../constants/theme'
 import { socket } from '../../constants/websocket'
+import Papa from 'papaparse';
 
 const TableContainer = styled.div`
   display: flex;
@@ -65,11 +66,11 @@ const NumberContainer = styled.div`
 
 const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, scorePartner }) => {
   let initialScore = {}
+  const [scores, setScores] = useState({});
+  const [loading, setLoading] = useState(true);
   const categories = gameState.categories;
-
-  let scoringId = gameState.scoringType === "cross" ? scorePartner.id : socket.id
-  // sort users so the person being score always comes first
-  let users = sortUserList([...gameState.users], scoringId)
+  let scoringId = gameState.scoringType === "cross" ? scorePartner.id : socket.id;
+  let users = sortUserList([...gameState.users], scoringId);
 
   users.forEach(user => {
     categories.forEach(cat => {
@@ -82,14 +83,150 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
   })
 
   const [currentScore, setCurrentScore] = useState(initialScore);
+  const [animalsSet, setAnimalsSet] = useState(new Set());
+  const [namesSet, setNamesSet] = useState(new Set());
+  const [thingsSet, setThingsSet] = useState(new Set());
+  const [placesSet, setPlacesSet] = useState(new Set());
+
+  const parseCSV = async (filePath) => {
+    const response = await fetch(filePath);
+    const reader = response.body.getReader();
+    const result = await reader.read();
+    const decoder = new TextDecoder('utf-8');
+    const csv = decoder.decode(result.value);
+    return new Promise((resolve, reject) => {
+      Papa.parse(csv, {
+        complete: (results) => {
+          resolve(results.data.map(row => row[0]));
+        },
+        error: reject
+      });
+    });
+  };
+
+
+  useEffect(() => {
+    parseCSV('/csv/animals.csv').then(data => {
+      setAnimalsSet(new Set(data.map(animal => animal.toLowerCase().trim())));
+    });
+    parseCSV('/csv/places.csv').then(data => {
+      setPlacesSet(new Set(data.map(place => place.toLowerCase().trim())));
+    });
+    parseCSV('/csv/names.csv').then(data => {
+      setNamesSet(new Set(data.map(names => names.toLowerCase().trim())));
+    });
+    parseCSV('/csv/things.csv').then(data => {
+      setThingsSet(new Set(data.map(thing => thing.toLowerCase().trim())));
+    });
+  }, []); // Empty dependency array to run only once on mount
+  
+
+  const scoreEntriesAI = async () => {
+
+    if (animalsSet.size === 0) {
+      console.log("Waiting for animalsSet to be populated...");
+      return; // Exit if animalsSet is not ready
+    }
+
+    const newScores = {};
+    for (const category of categories) {
+      for (const user of gameState.users) {
+        const answer = user.responses[round][category];
+        if (answer) {
+          const score = await getScoreFromAPI(category, answer);
+          newScores[user.id] = { ...(newScores[user.id] || {}), [category]: score };
+        }
+      }
+    }
+    setScores(newScores);
+    setLoading(false);
+  };
+
+
+  const getScoreFromAPI = async (category, answer) => {
+    try {
+        const formattedAnswer = answer.toLowerCase().trim();
+        let categorySet;
+
+        switch (category) {
+            case 'Animal':
+                categorySet = animalsSet;
+                break;
+            case 'Name':
+                categorySet = namesSet;
+                break;
+            case 'Thing':
+                categorySet = thingsSet;
+                break;
+            case 'Place':
+                categorySet = placesSet;
+                break;
+            default:
+                return 0;
+        }
+
+        let isExactMatch = false;
+        let isSimilarMatch = false;
+
+        categorySet.forEach(item => {
+            if (formattedAnswer === item) {
+                isExactMatch = true;
+            } else if (formattedAnswer.includes(item) || item.includes(formattedAnswer)) {
+                isSimilarMatch = true;
+            }
+        });
+
+        if (isExactMatch) {
+            console.log(`'${formattedAnswer}' is an exact match in ${category}.`);
+            return 10; // Exact match
+        } else if (isSimilarMatch) {
+            console.log(`'${formattedAnswer}' is a similar match in ${category}.`);
+            return 5; // Similar match
+        } else {
+            console.log(`'${formattedAnswer}' is not found in the ${category} set.`);
+        }
+
+        return 0; // Answer is incorrect or not in the category
+    } catch (error) {
+        console.error("Error checking answer:", error);
+        return 0;
+    }
+};
+
+
 
   let totalScore = 0;
   useEffect(() => {
-    totalScore = sumAllScores(currentScore)
-  }, [currentScore])
+    if(gameState.scoringType === "ai" && animalsSet.size > 0) {
+      scoreEntriesAI();
+    }
+  }, [gameState, round, animalsSet, namesSet, thingsSet, placesSet]); // Add animalsSet as a dependency
+  
 
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return <>
+
+{gameState.scoringType === "ai" ? ( 
+  <TableContainer>
+  {gameState.users.map(user => (
+    <Paper key={user.id}>
+      <h2>{user.name}</h2>
+      {gameState.categories.map(category => (
+        <div key={category}>
+          {category}: <Submission>{user.responses[round][category] || '-'}</Submission>
+          <span>Score: {scores[user.id] && scores[user.id][category]}</span>
+        </div>
+      ))}
+      <h2>Total Score: {Object.values(scores[user.id] || {}).reduce((a, b) => a + b, 0)}</h2>
+    </Paper>
+  ))}
+</TableContainer>
+    ) : (
+      <>
     {gameState.scoringType === "cross" ? <FlexContainer><h1>You are scoring for <Submission>{scorePartner.name}</Submission>!</h1></FlexContainer> : false}
     <TableContainer>
       {users.map(user => <Paper key={user.id}>
@@ -116,6 +253,8 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
         {user.id === scoringId ? <h2>{`Total Score: ${sumAllScores(currentScore)}`}</h2> : false}
       </Paper>)}
     </TableContainer>
+    </>
+    )}
     <Container>
       {!scoreSubmitted ? <>
         <Button onClick={(event) => {
@@ -128,6 +267,7 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
         </FlexColumn>}
     </Container>
   </>
+  
 }
 
 const similarityCheck = (category, users, currentUserId, round) => {

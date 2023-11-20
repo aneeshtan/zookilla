@@ -16,7 +16,6 @@ const ActivePlayers = ({ users, gameStarted, code }) => {
       <div>
         <GameCode>{` `}{code}</GameCode>
         <CopyButton disabled={copiedString === "Copied!"} onClick={() => {
-          gtag("event", "copy_to_clipboard");
           copy(code).then(() => setCopiedString('Copied!'))
         }}>{copiedString}</CopyButton>
       </div>

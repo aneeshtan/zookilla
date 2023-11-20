@@ -20,7 +20,7 @@ const CheckBoxContainer = styled.div`
 const Create = ({ cancel, setGameData, setGamePlaying }) => {
   const [name, setName] = useState('');
   const [rounds, setRounds] = useState("5");
-  const [scoringType, setScoringType] = useState("cross");
+  const [scoringType, setScoringType] = useState("ai");
   const [categories, setCategories] = useState({
     Name: true,
     Place: true,
@@ -68,9 +68,7 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
 
     socket.emit('create', { name, code, rounds, categories: cats, scoringType }, ({ error, users }) => {
       if (error) {
-        gtag('event', 'create_error', {
-          error
-        })
+         
         alert(error);
       } else {
         gameData.code = code;
@@ -119,13 +117,14 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
               <input type="radio" id="self" name="scoring" value="self" onChange={(event) => setScoringType(event.target.value)} checked={scoringType === "self"} />
               <label htmlFor="self">Score Yourself</label>
             </CheckBoxContainer>
+            <CheckBoxContainer key="ai">
+              <input type="radio" id="ai" name="scoring" value="ai" onChange={(event) => setScoringType(event.target.value)} checked={scoringType === "ai"} />
+              <label htmlFor="ai">Score by AI</label>
+            </CheckBoxContainer>
 
           </FlexContainer>
           <Button disabled={disabled} fontSize="25px" padding="15px" minWidth="220px" onClick={(event) => {
-            gtag('event', 'create_room', {
-              categories: categoriesArray.join(','),
-              rounds: rounds
-            });
+
             event.preventDefault()
             let code = hri.random();
             handleCreateGame(code);
