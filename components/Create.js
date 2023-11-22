@@ -135,7 +135,7 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
 
             event.preventDefault()
             //let code = hri.random();
-            let code = generateRandomCode(6); // Use your custom function here
+            let code = generateRandomCode(4); // Use your custom function here
 
             handleCreateGame(code);
           }}>Create Room</Button>
