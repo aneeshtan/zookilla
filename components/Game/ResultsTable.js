@@ -82,11 +82,26 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
     })
   })
 
-  const [currentScore, setCurrentScore] = useState(initialScore);
-  const [animalsSet, setAnimalsSet] = useState(new Set());
-  const [namesSet, setNamesSet] = useState(new Set());
-  const [thingsSet, setThingsSet] = useState(new Set());
-  const [placesSet, setPlacesSet] = useState(new Set());
+  const [gameData, setGameData] = useState({
+    currentScore: initialScore,
+    animalsSet: new Set(),
+    namesSet: new Set(),
+    thingsSet: new Set(),
+    placesSet: new Set(),
+    
+    booksSet: new Set(),
+    celebritiesSet: new Set(),
+    fruitsSet: new Set(),
+    instrumentsSet: new Set(),
+    moviesSet: new Set(),
+    musiciansSet: new Set(),
+    songsSet: new Set(),
+    tv_showsSet: new Set(),
+    musiciansSet: new Set(),
+
+
+
+  });
 
   const parseCSV = async (filePath) => {
     const response = await fetch(filePath);
@@ -106,20 +121,17 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
 
 
   useEffect(() => {
-    parseCSV('/csv/animals.csv').then(data => {
-      setAnimalsSet(new Set(data.map(animal => animal.toLowerCase().trim())));
-    });
-    parseCSV('/csv/places.csv').then(data => {
-      setPlacesSet(new Set(data.map(place => place.toLowerCase().trim())));
-    });
-    parseCSV('/csv/names.csv').then(data => {
-      setNamesSet(new Set(data.map(names => names.toLowerCase().trim())));
-    });
-    parseCSV('/csv/things.csv').then(data => {
-      setThingsSet(new Set(data.map(thing => thing.toLowerCase().trim())));
-    });
+    const categories = ['animals', 'places', 'names', 'things','books','songs','tv_shows','movies','instruments','musicians','fruits'];
+    Promise.all(categories.map(category =>
+      parseCSV(`/csv/${category}.csv`).then(data => {
+        setGameData(prevGameData => ({
+          ...prevGameData,
+          [`${category}Set`]: new Set(data.map(item => item.toLowerCase().trim())),
+        }));
+      })
+    ));
   }, []); // Empty dependency array to run only once on mount
-  
+
 
   const scoreEntriesAI = async () => {
 
@@ -146,24 +158,20 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
   const getScoreFromAPI = async (category, answer) => {
     try {
         const formattedAnswer = answer.toLowerCase().trim();
-        let categorySet;
-
-        switch (category) {
-            case 'Animal':
-                categorySet = animalsSet;
-                break;
-            case 'Name':
-                categorySet = namesSet;
-                break;
-            case 'Thing':
-                categorySet = thingsSet;
-                break;
-            case 'Place':
-                categorySet = placesSet;
-                break;
-            default:
-                return 0;
-        }
+        const categorySets = {
+          Animal: animalsSet,
+          Name: namesSet,
+          Thing: thingsSet,
+          Place: placesSet,
+          Songs: songsSet,
+          TV_shows: tv_showsSet,
+          Books: booksSet,
+          Celebrities: celebritiesSet,
+          Musicians: musiciansSet,
+          Instruments: instrumentsSet,
+        };
+        
+        let categorySet = categorySets[category] || new Set();
 
         let isExactMatch = false;
         let isSimilarMatch = false;
