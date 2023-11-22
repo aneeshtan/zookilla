@@ -30,7 +30,7 @@ const Landing = () => {
                 {!showJoinForm && !showCreateForm && (
                   <div className="button-container">
                     <button className="btn btn-success my-3 mx-2" onClick={() => {
-                      toggleJoinForm(true);
+                      toggleJoinForm(true); 
                       toggleCreateForm(false);
                     }}>
                       Join Existing Game
