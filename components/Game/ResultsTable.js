@@ -69,6 +69,7 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
   const [scores, setScores] = useState({});
   const [loading, setLoading] = useState(true);
   const categories = gameState.categories;
+  const currentAlphabet = gameState.currentAlphabet;
   let scoringId = gameState.scoringType === "cross" ? scorePartner.id : socket.id;
   let users = sortUserList([...gameState.users], scoringId);
 
@@ -82,6 +83,8 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
     })
   })
 
+  const [currentScore, setCurrentScore] = useState(initialScore);
+ 
   const [gameData, setGameData] = useState({
     currentScore: initialScore,
     animalsSet: new Set(),
@@ -102,7 +105,6 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
 
 
   });
-
   const parseCSV = async (filePath) => {
     const response = await fetch(filePath);
     const reader = response.body.getReader();
@@ -119,23 +121,30 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
     });
   };
 
-
   useEffect(() => {
-    const categories = ['animals', 'places', 'names', 'things','books','songs','tv_shows','movies','instruments','musicians','fruits'];
-    Promise.all(categories.map(category =>
-      parseCSV(`/csv/${category}.csv`).then(data => {
-        setGameData(prevGameData => ({
-          ...prevGameData,
-          [`${category}Set`]: new Set(data.map(item => item.toLowerCase().trim())),
-        }));
-      })
-    ));
-  }, []); // Empty dependency array to run only once on mount
-
+    const categories = ['animals', 'places', 'names', 'things', 'books', 'songs', 'tv_shows', 'movies', 'instruments', 'musicians', 'fruits'];
+    
+    const categoryPromises = categories.map(category =>
+      parseCSV(`/csv/${category}.csv`).then(data => ({
+        [`${category}Set`]: new Set(data.map(item => item.toLowerCase().trim()))
+      }))
+    );
+  
+    Promise.all(categoryPromises).then(results => {
+      const newGameData = results.reduce((acc, currentSet) => {
+        return { ...acc, ...currentSet };
+      }, {});
+  
+      setGameData(prevGameData => ({
+        ...prevGameData,
+        ...newGameData
+      }));
+    });
+  }, []);
 
   const scoreEntriesAI = async () => {
 
-    if (animalsSet.size === 0) {
+    if (gameData.animalsSet.size === 0) {
       console.log("Waiting for animalsSet to be populated...");
       return; // Exit if animalsSet is not ready
     }
@@ -155,20 +164,20 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
   };
 
 
-  const getScoreFromAPI = async (category, answer) => {
+  const getScoreFromAPI = async (category, answer,gameState) => {
     try {
         const formattedAnswer = answer.toLowerCase().trim();
         const categorySets = {
-          Animal: animalsSet,
-          Name: namesSet,
-          Thing: thingsSet,
-          Place: placesSet,
-          Songs: songsSet,
-          TV_shows: tv_showsSet,
-          Books: booksSet,
-          Celebrities: celebritiesSet,
-          Musicians: musiciansSet,
-          Instruments: instrumentsSet,
+          Animal: gameData.animalsSet,
+          Name: gameData.namesSet,
+          Thing: gameData.thingsSet,
+          Place: gameData.placesSet,
+          Songs: gameData.songsSet,
+          TV_shows: gameData.tv_showsSet,
+          Books: gameData.booksSet,
+          Celebrities: gameData.celebritiesSet,
+          Musicians: gameData.musiciansSet,
+          Instruments: gameData.instrumentsSet,
         };
         
         let categorySet = categorySets[category] || new Set();
@@ -183,6 +192,12 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
                 isSimilarMatch = true;
             }
         });
+        //console.log(currentAlphabet);
+        if (!formattedAnswer.startsWith(currentAlphabet.toLowerCase())) {
+          console.log(`'${formattedAnswer}' does not start with the round letter '${currentAlphabet}'.`);
+          return -10; // Deduct points if it doesn't start with the round letter
+        }
+
 
         if (isExactMatch) {
             console.log(`'${formattedAnswer}' is an exact match in ${category}.`);
@@ -205,10 +220,10 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
 
   let totalScore = 0;
   useEffect(() => {
-    if(gameState.scoringType === "ai" && animalsSet.size > 0) {
+    if(gameState.scoringType === "ai" && gameData.animalsSet.size > 0) {
       scoreEntriesAI();
     }
-  }, [gameState, round, animalsSet, namesSet, thingsSet, placesSet]); // Add animalsSet as a dependency
+  }, [gameState, round, gameData.animalsSet, gameData.namesSet, gameData.thingsSet, gameData.placesSet]); // Add animalsSet as a dependency
   
 
 
@@ -226,10 +241,10 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
       {gameState.categories.map(category => (
         <div key={category}>
           {category}: <Submission>{user.responses[round][category] || '-'}</Submission>
-          <span>Score: {scores[user.id] && scores[user.id][category]}</span>
+          <span> Score: {scores[user.id] && scores[user.id][category]}</span>
         </div>
       ))}
-      <h2>Total Score: {Object.values(scores[user.id] || {}).reduce((a, b) => a + b, 0)}</h2>
+      <h3 style={{ 'text-align': 'center' }} >Total Score: {Object.values(scores[user.id] || {}).reduce((a, b) => a + b, 0)}</h3>
     </Paper>
   ))}
 </TableContainer>
@@ -268,7 +283,7 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
         <Button onClick={(event) => {
           event.preventDefault()
           handleSubmitScore(totalScore, scoringId)
-        }}>Submit</Button>
+        }}>Go Next!</Button>
       </> : <FlexColumn>
           <h2>Waiting for others</h2>
           <Spinner />

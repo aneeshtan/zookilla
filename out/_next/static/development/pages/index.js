@@ -391,7 +391,7 @@ var Create = function Create(_ref) {
     onClick: function onClick(event) {
       event.preventDefault(); //let code = hri.random();
 
-      var code = generateRandomCode(6); // Use your custom function here
+      var code = generateRandomCode(4); // Use your custom function here
 
       handleCreateGame(code);
     },
@@ -1404,15 +1404,15 @@ var _this = undefined,
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement;
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
 function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 
@@ -1472,6 +1472,7 @@ var ResultsTable = function ResultsTable(_ref) {
       setLoading = _useState2[1];
 
   var categories = gameState.categories;
+  var currentAlphabet = gameState.currentAlphabet;
   var scoringId = gameState.scoringType === "cross" ? scorePartner.id : _constants_websocket__WEBPACK_IMPORTED_MODULE_7__["socket"].id;
   var users = sortUserList(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__["default"])(gameState.users), scoringId);
   users.forEach(function (user) {
@@ -1488,21 +1489,23 @@ var ResultsTable = function ResultsTable(_ref) {
       currentScore = _useState3[0],
       setCurrentScore = _useState3[1];
 
-  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(new Set()),
-      animalsSet = _useState4[0],
-      setAnimalsSet = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(new Set()),
-      namesSet = _useState5[0],
-      setNamesSet = _useState5[1];
-
-  var _useState6 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(new Set()),
-      thingsSet = _useState6[0],
-      setThingsSet = _useState6[1];
-
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(new Set()),
-      placesSet = _useState7[0],
-      setPlacesSet = _useState7[1];
+  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    currentScore: initialScore,
+    animalsSet: new Set(),
+    namesSet: new Set(),
+    thingsSet: new Set(),
+    placesSet: new Set(),
+    booksSet: new Set(),
+    celebritiesSet: new Set(),
+    fruitsSet: new Set(),
+    instrumentsSet: new Set(),
+    moviesSet: new Set(),
+    musiciansSet: new Set(),
+    songsSet: new Set(),
+    tv_showsSet: new Set()
+  }, "musiciansSet", new Set())),
+      gameData = _useState4[0],
+      setGameData = _useState4[1];
 
   var parseCSV = function parseCSV(filePath) {
     var response, reader, result, decoder, csv;
@@ -1543,27 +1546,23 @@ var ResultsTable = function ResultsTable(_ref) {
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
-    parseCSV('/csv/animals.csv').then(function (data) {
-      setAnimalsSet(new Set(data.map(function (animal) {
-        return animal.toLowerCase().trim();
-      })));
+    var categories = ['animals', 'places', 'names', 'things', 'books', 'songs', 'tv_shows', 'movies', 'instruments', 'musicians', 'fruits'];
+    var categoryPromises = categories.map(function (category) {
+      return parseCSV("/csv/".concat(category, ".csv")).then(function (data) {
+        return Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])({}, "".concat(category, "Set"), new Set(data.map(function (item) {
+          return item.toLowerCase().trim();
+        })));
+      });
     });
-    parseCSV('/csv/places.csv').then(function (data) {
-      setPlacesSet(new Set(data.map(function (place) {
-        return place.toLowerCase().trim();
-      })));
+    Promise.all(categoryPromises).then(function (results) {
+      var newGameData = results.reduce(function (acc, currentSet) {
+        return _objectSpread({}, acc, {}, currentSet);
+      }, {});
+      setGameData(function (prevGameData) {
+        return _objectSpread({}, prevGameData, {}, newGameData);
+      });
     });
-    parseCSV('/csv/names.csv').then(function (data) {
-      setNamesSet(new Set(data.map(function (names) {
-        return names.toLowerCase().trim();
-      })));
-    });
-    parseCSV('/csv/things.csv').then(function (data) {
-      setThingsSet(new Set(data.map(function (thing) {
-        return thing.toLowerCase().trim();
-      })));
-    });
-  }, []); // Empty dependency array to run only once on mount
+  }, []);
 
   var scoreEntriesAI = function scoreEntriesAI() {
     var newScores, _iterator, _step, category, _iterator2, _step2, user, answer, score;
@@ -1572,7 +1571,7 @@ var ResultsTable = function ResultsTable(_ref) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            if (!(animalsSet.size === 0)) {
+            if (!(gameData.animalsSet.size === 0)) {
               _context2.next = 3;
               break;
             }
@@ -1674,38 +1673,27 @@ var ResultsTable = function ResultsTable(_ref) {
     }, null, null, [[5, 34, 37, 40], [10, 24, 27, 30]], Promise);
   };
 
-  var getScoreFromAPI = function getScoreFromAPI(category, answer) {
-    var formattedAnswer, categorySet, isExactMatch, isSimilarMatch;
+  var getScoreFromAPI = function getScoreFromAPI(category, answer, gameState) {
+    var formattedAnswer, categorySets, categorySet, isExactMatch, isSimilarMatch;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getScoreFromAPI$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.prev = 0;
             formattedAnswer = answer.toLowerCase().trim();
-            _context3.t0 = category;
-            _context3.next = _context3.t0 === 'Animal' ? 5 : _context3.t0 === 'Name' ? 7 : _context3.t0 === 'Thing' ? 9 : _context3.t0 === 'Place' ? 11 : 13;
-            break;
-
-          case 5:
-            categorySet = animalsSet;
-            return _context3.abrupt("break", 14);
-
-          case 7:
-            categorySet = namesSet;
-            return _context3.abrupt("break", 14);
-
-          case 9:
-            categorySet = thingsSet;
-            return _context3.abrupt("break", 14);
-
-          case 11:
-            categorySet = placesSet;
-            return _context3.abrupt("break", 14);
-
-          case 13:
-            return _context3.abrupt("return", 0);
-
-          case 14:
+            categorySets = {
+              Animal: gameData.animalsSet,
+              Name: gameData.namesSet,
+              Thing: gameData.thingsSet,
+              Place: gameData.placesSet,
+              Songs: gameData.songsSet,
+              TV_shows: gameData.tv_showsSet,
+              Books: gameData.booksSet,
+              Celebrities: gameData.celebritiesSet,
+              Musicians: gameData.musiciansSet,
+              Instruments: gameData.instrumentsSet
+            };
+            categorySet = categorySets[category] || new Set();
             isExactMatch = false;
             isSimilarMatch = false;
             categorySet.forEach(function (item) {
@@ -1714,58 +1702,67 @@ var ResultsTable = function ResultsTable(_ref) {
               } else if (formattedAnswer.includes(item) || item.includes(formattedAnswer)) {
                 isSimilarMatch = true;
               }
-            });
+            }); //console.log(currentAlphabet);
 
+            if (formattedAnswer.startsWith(currentAlphabet.toLowerCase())) {
+              _context3.next = 10;
+              break;
+            }
+
+            console.log("'".concat(formattedAnswer, "' does not start with the round letter '").concat(currentAlphabet, "'."));
+            return _context3.abrupt("return", -10);
+
+          case 10:
             if (!isExactMatch) {
-              _context3.next = 22;
+              _context3.next = 15;
               break;
             }
 
             console.log("'".concat(formattedAnswer, "' is an exact match in ").concat(category, "."));
             return _context3.abrupt("return", 10);
 
-          case 22:
+          case 15:
             if (!isSimilarMatch) {
-              _context3.next = 27;
+              _context3.next = 20;
               break;
             }
 
             console.log("'".concat(formattedAnswer, "' is a similar match in ").concat(category, "."));
             return _context3.abrupt("return", 5);
 
-          case 27:
+          case 20:
             console.log("'".concat(formattedAnswer, "' is not found in the ").concat(category, " set."));
 
+          case 21:
+            return _context3.abrupt("return", 0);
+
+          case 24:
+            _context3.prev = 24;
+            _context3.t0 = _context3["catch"](0);
+            console.error("Error checking answer:", _context3.t0);
+            return _context3.abrupt("return", 0);
+
           case 28:
-            return _context3.abrupt("return", 0);
-
-          case 31:
-            _context3.prev = 31;
-            _context3.t1 = _context3["catch"](0);
-            console.error("Error checking answer:", _context3.t1);
-            return _context3.abrupt("return", 0);
-
-          case 35:
           case "end":
             return _context3.stop();
         }
       }
-    }, null, null, [[0, 31]], Promise);
+    }, null, null, [[0, 24]], Promise);
   };
 
   var totalScore = 0;
   Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
-    if (gameState.scoringType === "ai" && animalsSet.size > 0) {
+    if (gameState.scoringType === "ai" && gameData.animalsSet.size > 0) {
       scoreEntriesAI();
     }
-  }, [gameState, round, animalsSet, namesSet, thingsSet, placesSet]); // Add animalsSet as a dependency
+  }, [gameState, round, gameData.animalsSet, gameData.namesSet, gameData.thingsSet, gameData.placesSet]); // Add animalsSet as a dependency
 
   if (loading) {
     return __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_5__["Spinner"], {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 208,
+        lineNumber: 231,
         columnNumber: 12
       }
     });
@@ -1775,7 +1772,7 @@ var ResultsTable = function ResultsTable(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 214,
+      lineNumber: 237,
       columnNumber: 3
     }
   }, gameState.users.map(function (user) {
@@ -1784,14 +1781,14 @@ var ResultsTable = function ResultsTable(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 216,
+        lineNumber: 239,
         columnNumber: 5
       }
     }, __jsx("h2", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 217,
+        lineNumber: 240,
         columnNumber: 7
       }
     }, user.name), gameState.categories.map(function (category) {
@@ -1800,29 +1797,32 @@ var ResultsTable = function ResultsTable(_ref) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 219,
+          lineNumber: 242,
           columnNumber: 9
         }
       }, category, ": ", __jsx(Submission, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 220,
+          lineNumber: 243,
           columnNumber: 23
         }
       }, user.responses[round][category] || '-'), __jsx("span", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 221,
+          lineNumber: 244,
           columnNumber: 11
         }
-      }, "Score: ", scores[user.id] && scores[user.id][category]));
-    }), __jsx("h2", {
+      }, " Score: ", scores[user.id] && scores[user.id][category]));
+    }), __jsx("h3", {
+      style: {
+        'text-align': 'center'
+      },
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 224,
+        lineNumber: 247,
         columnNumber: 7
       }
     }, "Total Score: ", Object.values(scores[user.id] || {}).reduce(function (a, b) {
@@ -1832,28 +1832,28 @@ var ResultsTable = function ResultsTable(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 230,
+      lineNumber: 253,
       columnNumber: 42
     }
   }, __jsx("h1", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 230,
+      lineNumber: 253,
       columnNumber: 57
     }
   }, "You are scoring for ", __jsx(Submission, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 230,
+      lineNumber: 253,
       columnNumber: 81
     }
   }, scorePartner.name), "!")) : false, __jsx(TableContainer, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 231,
+      lineNumber: 254,
       columnNumber: 5
     }
   }, users.map(function (user) {
@@ -1862,7 +1862,7 @@ var ResultsTable = function ResultsTable(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 232,
+        lineNumber: 255,
         columnNumber: 26
       }
     }, __jsx("h2", {
@@ -1873,21 +1873,21 @@ var ResultsTable = function ResultsTable(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 233,
+        lineNumber: 256,
         columnNumber: 9
       }
     }, __jsx("span", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 233,
+        lineNumber: 256,
         columnNumber: 74
       }
     }, user.name), user.id === scoringId ? __jsx("span", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 234,
+        lineNumber: 257,
         columnNumber: 36
       }
     }, "Score") : false), categories.map(function (category) {
@@ -1898,7 +1898,7 @@ var ResultsTable = function ResultsTable(_ref) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 239,
+          lineNumber: 262,
           columnNumber: 18
         }
       }, similar.value && selfScoreCard ? __jsx("span", {
@@ -1908,7 +1908,7 @@ var ResultsTable = function ResultsTable(_ref) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 240,
+          lineNumber: 263,
           columnNumber: 47
         }
       }, scorePartner.name || 'You', " and ", similar.name, " put down the same word for ", category) : false, __jsx("div", {
@@ -1922,7 +1922,7 @@ var ResultsTable = function ResultsTable(_ref) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 241,
+          lineNumber: 264,
           columnNumber: 13
         }
       }, __jsx("div", {
@@ -1933,21 +1933,21 @@ var ResultsTable = function ResultsTable(_ref) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 242,
+          lineNumber: 265,
           columnNumber: 15
         }
       }, category, ":", "  ", " ", __jsx(Submission, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 243,
+          lineNumber: 266,
           columnNumber: 35
         }
       }, user.responses[round][category] || '-')), selfScoreCard ? user.responses[round][category] ? __jsx(InputContainer, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 246,
+          lineNumber: 269,
           columnNumber: 51
         }
       }, __jsx(NumberInput, {
@@ -1958,14 +1958,14 @@ var ResultsTable = function ResultsTable(_ref) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 247,
+          lineNumber: 270,
           columnNumber: 19
         }
       }), " ") : __jsx(NumberContainer, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 247,
+          lineNumber: 270,
           columnNumber: 167
         }
       }, "0") : ''));
@@ -1973,7 +1973,7 @@ var ResultsTable = function ResultsTable(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 253,
+        lineNumber: 276,
         columnNumber: 34
       }
     }, "Total Score: ".concat(sumAllScores(currentScore))) : false);
@@ -1981,7 +1981,7 @@ var ResultsTable = function ResultsTable(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 258,
+      lineNumber: 281,
       columnNumber: 5
     }
   }, !scoreSubmitted ? __jsx(react__WEBPACK_IMPORTED_MODULE_3___default.a.Fragment, null, __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_5__["Button"], {
@@ -1992,28 +1992,28 @@ var ResultsTable = function ResultsTable(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 260,
+      lineNumber: 283,
       columnNumber: 9
     }
-  }, "Submit")) : __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_5__["FlexColumn"], {
+  }, "Go Next!")) : __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_5__["FlexColumn"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 264,
+      lineNumber: 287,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 265,
+      lineNumber: 288,
       columnNumber: 11
     }
   }, "Waiting for others"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_5__["Spinner"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 266,
+      lineNumber: 289,
       columnNumber: 11
     }
   }))));
@@ -2052,15 +2052,15 @@ var sumAllScores = function sumAllScores(scores) {
   }, 0);
 };
 
-var NumberInput = function NumberInput(_ref2) {
-  var value = _ref2.value,
-      currentScore = _ref2.currentScore,
-      setCurrentScore = _ref2.setCurrentScore,
-      category = _ref2.category;
+var NumberInput = function NumberInput(_ref3) {
+  var value = _ref3.value,
+      currentScore = _ref3.currentScore,
+      setCurrentScore = _ref3.setCurrentScore,
+      category = _ref3.category;
 
-  var _useState8 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
-      numberValue = _useState8[0],
-      setNumberValue = _useState8[1];
+  var _useState6 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useState"])(value),
+      numberValue = _useState6[0],
+      setNumberValue = _useState6[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_3__["useEffect"])(function () {
     setCurrentScore(Object.assign({}, currentScore, Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])({}, category, value)));
@@ -2084,7 +2084,7 @@ var NumberInput = function NumberInput(_ref2) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 307,
+      lineNumber: 330,
       columnNumber: 12
     }
   }, "-"), numberValue, __jsx(StyledIncrementButton, {
@@ -2095,7 +2095,7 @@ var NumberInput = function NumberInput(_ref2) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 307,
+      lineNumber: 330,
       columnNumber: 128
     }
   }, "+"));

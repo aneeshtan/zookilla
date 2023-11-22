@@ -941,38 +941,29 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
         columnNumber: 9
       }
     }, __jsx("link", {
-      href: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap",
-      rel: "stylesheet",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35,
-        columnNumber: 9
-      }
-    }), __jsx("link", {
       rel: "stylesheet",
       href: "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36,
-        columnNumber: 11
+        lineNumber: 35,
+        columnNumber: 12
       }
     }), __jsx("meta", {
       charset: "utf-8",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38,
+        lineNumber: 37,
         columnNumber: 11
       }
     }), __jsx("link", {
       rel: "icon",
-      href: "%PUBLIC_URL%/favicon.ico",
+      href: "./favicon.ico",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39,
+        lineNumber: 38,
         columnNumber: 11
       }
     }), __jsx("meta", {
@@ -981,7 +972,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40,
+        lineNumber: 39,
         columnNumber: 11
       }
     }), __jsx("meta", {
@@ -990,7 +981,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41,
+        lineNumber: 40,
         columnNumber: 11
       }
     }), __jsx("meta", {
@@ -999,7 +990,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43,
+        lineNumber: 42,
         columnNumber: 11
       }
     }), __jsx("meta", {
@@ -1008,7 +999,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44,
+        lineNumber: 43,
         columnNumber: 11
       }
     })), __jsx("body", {
@@ -1023,28 +1014,28 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        fontFamily: "'Schoolbell', sans-serif",
-        color: '#fff',
-        backgroundColor: '#000'
+        fontFamily: "'sans-serif",
+        color: '#000',
+        backgroundColor: '#DAF5F3'
       },
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48,
+        lineNumber: 47,
         columnNumber: 8
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64,
+        lineNumber: 63,
         columnNumber: 9
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65,
+        lineNumber: 64,
         columnNumber: 11
       }
     })));

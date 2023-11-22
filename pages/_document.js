@@ -32,11 +32,10 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
           <meta charset="utf-8" />
-          <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+          <link rel="icon" href="./favicon.ico" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
 
@@ -56,9 +55,9 @@ export default class MyDocument extends Document {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          fontFamily: "'Schoolbell', sans-serif",
-          color: '#fff',
-          backgroundColor: '#000'
+          fontFamily: "'sans-serif",
+          color: '#000',
+          backgroundColor: '#DAF5F3'
         }}>
           
         <Main />
