@@ -71,7 +71,17 @@ var Create = function Create(_ref) {
     Instruments: false
   }),
       categories = _useState4[0],
-      setCategories = _useState4[1]; // Monzo easter egg
+      setCategories = _useState4[1];
+
+  var generateRandomCode = function generateRandomCode(length) {
+    var code = '';
+
+    for (var i = 0; i < length; i++) {
+      code += Math.floor(Math.random() * 10); // Generate a random digit
+    }
+
+    return code;
+  }; // Monzo easter egg
 
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
@@ -126,28 +136,28 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 95,
       columnNumber: 5
     }
   }, __jsx("form", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 96,
       columnNumber: 7
     }
   }, __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["FlexColumn"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 97,
       columnNumber: 9
     }
   }, __jsx("p", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90,
+      lineNumber: 98,
       columnNumber: 11
     }
   }, __jsx("label", {
@@ -155,7 +165,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 99,
       columnNumber: 13
     }
   }, "Your Name:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["StyledInput"], {
@@ -168,21 +178,21 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 100,
       columnNumber: 13
     }
   })), __jsx("h2", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 102,
       columnNumber: 11
     }
   }, "Select number of rounds:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["FlexContainer"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 103,
       columnNumber: 11
     }
   }, options.map(function (option) {
@@ -191,7 +201,7 @@ var Create = function Create(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96,
+        lineNumber: 104,
         columnNumber: 36
       }
     }, __jsx("input", {
@@ -206,7 +216,7 @@ var Create = function Create(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 97,
+        lineNumber: 105,
         columnNumber: 15
       }
     }), __jsx("label", {
@@ -214,7 +224,7 @@ var Create = function Create(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 98,
+        lineNumber: 106,
         columnNumber: 15
       }
     }, option));
@@ -222,7 +232,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 109,
       columnNumber: 11
     }
   }, "Select categories:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["FlexContainer"], {
@@ -232,7 +242,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 110,
       columnNumber: 11
     }
   }, categoriesArray.map(function (cat) {
@@ -241,7 +251,7 @@ var Create = function Create(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103,
+        lineNumber: 111,
         columnNumber: 41
       }
     }, __jsx("input", {
@@ -255,7 +265,7 @@ var Create = function Create(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104,
+        lineNumber: 112,
         columnNumber: 15
       }
     }), __jsx("label", {
@@ -263,7 +273,7 @@ var Create = function Create(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107,
+        lineNumber: 115,
         columnNumber: 15
       }
     }, cat));
@@ -271,21 +281,21 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 118,
       columnNumber: 11
     }
   }, "Scoring Rules:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["FlexContainer"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 119,
       columnNumber: 11
     }
   }, __jsx(CheckBoxContainer, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
+      lineNumber: 120,
       columnNumber: 13
     }
   }, __jsx("input", {
@@ -300,7 +310,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113,
+      lineNumber: 121,
       columnNumber: 15
     }
   }), __jsx("label", {
@@ -308,7 +318,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114,
+      lineNumber: 122,
       columnNumber: 15
     }
   }, "Score Each Other")), __jsx(CheckBoxContainer, {
@@ -316,7 +326,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 116,
+      lineNumber: 124,
       columnNumber: 13
     }
   }, __jsx("input", {
@@ -331,7 +341,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117,
+      lineNumber: 125,
       columnNumber: 15
     }
   }), __jsx("label", {
@@ -339,7 +349,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118,
+      lineNumber: 126,
       columnNumber: 15
     }
   }, "Score Yourself")), __jsx(CheckBoxContainer, {
@@ -347,7 +357,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120,
+      lineNumber: 128,
       columnNumber: 13
     }
   }, __jsx("input", {
@@ -362,7 +372,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 129,
       columnNumber: 15
     }
   }), __jsx("label", {
@@ -370,7 +380,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 130,
       columnNumber: 15
     }
   }, "Score by AI"))), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["Button"], {
@@ -379,14 +389,16 @@ var Create = function Create(_ref) {
     padding: "15px",
     minWidth: "220px",
     onClick: function onClick(event) {
-      event.preventDefault();
-      var code = human_readable_ids__WEBPACK_IMPORTED_MODULE_3__["hri"].random();
+      event.preventDefault(); //let code = hri.random();
+
+      var code = generateRandomCode(6); // Use your custom function here
+
       handleCreateGame(code);
     },
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126,
+      lineNumber: 134,
       columnNumber: 11
     }
   }, "Create Room")), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["Button"], {
@@ -399,7 +411,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
+      lineNumber: 143,
       columnNumber: 9
     }
   }, "Cancel")));
@@ -537,11 +549,12 @@ var FinalScreen = function FinalScreen(_ref) {
 /*!***************************************!*\
   !*** ./components/Game/GameHeader.js ***!
   \***************************************/
-/*! exports provided: default */
+/*! exports provided: HelpIcon, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpIcon", function() { return HelpIcon; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
@@ -571,6 +584,10 @@ var BoldContent = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].span
   displayName: "GameHeader__BoldContent",
   componentId: "sc-1k9cj4g-4"
 })(["color:red;font-weight:bold;font-size:1.2em;"]);
+var HelpIcon = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "GameHeader__HelpIcon",
+  componentId: "sc-1k9cj4g-5"
+})(["position:fixed;bottom:70px;right:20px;width:40px;height:40px;background-color:#007bff;color:white;border-radius:50%;text-align:center;line-height:40px;font-size:20px;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.2);"]);
 var tickingSound;
 
 var GameHeader = function GameHeader(_ref) {
@@ -599,56 +616,56 @@ var GameHeader = function GameHeader(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 81,
       columnNumber: 10
     }
   }, __jsx(RoundContainer, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 82,
       columnNumber: 5
     }
   }, __jsx("span", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 83,
       columnNumber: 7
     }
   }, "Round ", __jsx(BoldContent, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 83,
       columnNumber: 19
     }
   }, "#".concat(roundNumber, "/").concat(maxRounds))), __jsx("span", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 84,
       columnNumber: 7
     }
   }, "Current Alphabet: ", __jsx(BoldContent, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 84,
       columnNumber: 31
     }
   }, currentAlphabet || 'Not Selected'))), __jsx(TimerContainer, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 86,
       columnNumber: 5
     }
   }, __jsx(TimerValue, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 86,
       columnNumber: 21
     }
   }, timerValue)));
@@ -785,6 +802,9 @@ var InputTable = function InputTable(_ref) {
       }
     }));
   })), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+    style: {
+      background: 'red'
+    },
     onClick: function onClick(event) {
       event.preventDefault();
       sendResponse(response);
@@ -795,7 +815,7 @@ var InputTable = function InputTable(_ref) {
       lineNumber: 54,
       columnNumber: 7
     }
-  }, "Submit Response")));
+  }, "\uD83D\uDE8C Stop the Bus")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (InputTable);
@@ -2670,6 +2690,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Create__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Create */ "./components/Create.js");
 /* harmony import */ var _Game_Play__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Game/Play */ "./components/Game/Play.js");
 /* harmony import */ var _Instructions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Instructions */ "./components/Instructions.js");
+/* harmony import */ var _Game_GameHeader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Game/GameHeader */ "./components/Game/GameHeader.js");
 var _this = undefined,
     _jsxFileName = "/Users/farshadghazanfari/Documents/www/npat/components/Landing.js";
 
@@ -2679,19 +2700,20 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+ // Adjust the path as per your folder structure
 
 var Landing = function Landing() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      showInstructions = _useState[0],
-      toggleInstructions = _useState[1];
+      showJoinForm = _useState[0],
+      toggleJoinForm = _useState[1];
 
   var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      showJoinForm = _useState2[0],
-      toggleJoinForm = _useState2[1];
+      showCreateForm = _useState2[0],
+      toggleCreateForm = _useState2[1];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      showCreateForm = _useState3[0],
-      toggleCreateForm = _useState3[1];
+      showInstructions = _useState3[0],
+      toggleInstructions = _useState3[1];
 
   var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       isGamePlaying = _useState4[0],
@@ -2710,7 +2732,7 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 18,
       columnNumber: 5
     }
   }, __jsx("div", {
@@ -2718,18 +2740,10 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 19,
       columnNumber: 7
     }
-  }, __jsx("h1", {
-    className: "display-4",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19,
-      columnNumber: 9
-    }
-  }, "Zookilla")), __jsx("div", {
+  }), __jsx("div", {
     className: "d-flex flex-column align-items-center justify-content-center",
     __self: _this,
     __source: {
@@ -2764,7 +2778,9 @@ var Landing = function Landing() {
       columnNumber: 15
     }
   }) : showInstructions ? __jsx(_Instructions__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    cancel: toggleInstructions,
+    cancel: function cancel() {
+      return toggleInstructions(false);
+    },
     __self: _this,
     __source: {
       fileName: _jsxFileName,
@@ -2772,6 +2788,7 @@ var Landing = function Landing() {
       columnNumber: 15
     }
   }) : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, !showJoinForm && !showCreateForm && __jsx("div", {
+    className: "button-container",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
@@ -2779,18 +2796,7 @@ var Landing = function Landing() {
       columnNumber: 19
     }
   }, __jsx("button", {
-    className: "btn btn-primary my-2",
-    onClick: function onClick() {
-      return toggleInstructions(true);
-    },
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32,
-      columnNumber: 21
-    }
-  }, "How To Play"), __jsx("button", {
-    className: "btn btn-primary my-2",
+    className: "btn btn-success my-3 mx-2",
     onClick: function onClick() {
       toggleJoinForm(true);
       toggleCreateForm(false);
@@ -2798,11 +2804,11 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 32,
       columnNumber: 21
     }
   }, "Join Existing Game"), __jsx("button", {
-    className: "btn btn-primary my-2",
+    className: "btn btn-danger my-3 mx-2",
     onClick: function onClick() {
       toggleJoinForm(false);
       toggleCreateForm(true);
@@ -2810,7 +2816,7 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 38,
       columnNumber: 21
     }
   }, "Create New Game")), showJoinForm && __jsx(_Join__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -2820,7 +2826,7 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 46,
       columnNumber: 34
     }
   }), showCreateForm && __jsx(_Create__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2830,10 +2836,20 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 47,
       columnNumber: 36
     }
-  }))))));
+  })))), __jsx(_Game_GameHeader__WEBPACK_IMPORTED_MODULE_5__["HelpIcon"], {
+    onClick: function onClick() {
+      return toggleInstructions(true);
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 9
+    }
+  }, "?")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Landing);
@@ -8717,7 +8733,7 @@ if (typeof WebSocket !== 'undefined') {
 
 if (typeof window === 'undefined') {
   try {
-    NodeWebSocket = __webpack_require__(/*! ws */ 3);
+    NodeWebSocket = __webpack_require__(/*! ws */ 2);
   } catch (e) { }
 }
 
@@ -18265,9 +18281,9 @@ function Home() {
       lineNumber: 10,
       columnNumber: 9
     }
-  }, "Name, Place, Animal, Thing! | Online Multiplayer Game"), __jsx("link", {
+  }, "Zookilla! | Online Multiplayer Game"), __jsx("link", {
     rel: "icon",
-    href: "/favicon.ico",
+    href: "https://zookilla.com/favicon.ico",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -18293,7 +18309,7 @@ function Home() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*****************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Ffarshadghazanfari%2FDocuments%2Fwww%2Fnpat%2Fpages%2Findex.js ***!
   \*****************************************************************************************************************************************/
@@ -18305,7 +18321,7 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absol
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!********************!*\
   !*** ws (ignored) ***!
   \********************/
@@ -18327,5 +18343,5 @@ module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

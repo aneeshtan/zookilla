@@ -27,6 +27,7 @@ export default class MyDocument extends Document {
     }
   }
 
+
   render() {
     return (
       <Html>
@@ -43,11 +44,21 @@ export default class MyDocument extends Document {
           <meta name="description"
             content="Play zookilla with your friends"></meta>
        </Head>
+       
        <body style={{ backgroundColor: '#000', color: '#fff', margin: 0, padding: 0, fontFamily: 'Schoolbell, sans-serif' }}>
           <style jsx>{`
           body {
             padding: 0px;
             margin: 0px;
+            background-image: url('/assets/stopthebus.jpg'); // Replace with the correct path
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          
           }
         `}</style>
           <Main />

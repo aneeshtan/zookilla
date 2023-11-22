@@ -38,6 +38,14 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
     Instruments: false
   })
 
+  const generateRandomCode = (length) => {
+    let code = '';
+    for (let i = 0; i < length; i++) {
+        code += Math.floor(Math.random() * 10); // Generate a random digit
+    }
+    return code;
+  }
+
   // Monzo easter egg
   useEffect(() => {
     if (name === "Monzo") {
@@ -126,7 +134,9 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
           <Button disabled={disabled} fontSize="25px" padding="15px" minWidth="220px" onClick={(event) => {
 
             event.preventDefault()
-            let code = hri.random();
+            //let code = hri.random();
+            let code = generateRandomCode(6); // Use your custom function here
+
             handleCreateGame(code);
           }}>Create Room</Button>
         </FlexColumn>

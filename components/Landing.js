@@ -3,20 +3,20 @@ import React, { useState } from 'react';
 import Join from './Join';
 import Create from './Create';
 import Play from './Game/Play';
-import Instructions from './Instructions'
+import Instructions from './Instructions';
+import { HelpIcon } from './Game/GameHeader'; // Adjust the path as per your folder structure
 
 const Landing = () => {
-  const [showInstructions, toggleInstructions] = useState(false);
   const [showJoinForm, toggleJoinForm] = useState(false);
   const [showCreateForm, toggleCreateForm] = useState(false);
+  const [showInstructions, toggleInstructions] = useState(false);
   const [isGamePlaying, setGamePlaying] = useState(false);
   const [gameData, setGameData] = useState({});
   const [soundOn, toggleSound] = useState(true);
 
   return (
     <div className="container-fluid">
-      <div className="text-center mt-5 mb-4">
-        <h1 className="display-4">Zookilla</h1>
+      <div className="text-center mt-5 mb-4"> 
       </div>
       <div className="d-flex flex-column align-items-center justify-content-center">
         <div className="card bg-light text-dark mb-3">
@@ -24,21 +24,18 @@ const Landing = () => {
             {isGamePlaying ? (
               <Play soundOn={soundOn} setGamePlaying={setGamePlaying} gameData={gameData} />
             ) : showInstructions ? (
-              <Instructions cancel={toggleInstructions} />
+              <Instructions cancel={() => toggleInstructions(false)} />
             ) : (
               <>
                 {!showJoinForm && !showCreateForm && (
-                  <div>
-                    <button className="btn btn-primary my-2" onClick={() => toggleInstructions(true)}>
-                      How To Play
-                    </button>
-                    <button className="btn btn-primary my-2" onClick={() => {
+                  <div className="button-container">
+                    <button className="btn btn-success my-3 mx-2" onClick={() => {
                       toggleJoinForm(true);
                       toggleCreateForm(false);
                     }}>
                       Join Existing Game
                     </button>
-                    <button className="btn btn-primary my-2" onClick={() => {
+                    <button className="btn btn-danger my-3 mx-2" onClick={() => {
                       toggleJoinForm(false);
                       toggleCreateForm(true);
                     }}>
@@ -52,6 +49,11 @@ const Landing = () => {
             )}
           </div>
         </div>
+        <HelpIcon onClick={() => toggleInstructions(true)}>
+        ?
+      </HelpIcon>
+
+
       </div>
       {/* Additional components or footer */}
     </div>

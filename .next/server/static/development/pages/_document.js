@@ -933,14 +933,14 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_2___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32,
+        lineNumber: 33,
         columnNumber: 7
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_2__["Head"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33,
+        lineNumber: 34,
         columnNumber: 9
       }
     }, __jsx("link", {
@@ -949,7 +949,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_2___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34,
+        lineNumber: 35,
         columnNumber: 9
       }
     }), __jsx("link", {
@@ -958,7 +958,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_2___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35,
+        lineNumber: 36,
         columnNumber: 11
       }
     }), __jsx("meta", {
@@ -966,7 +966,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_2___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37,
+        lineNumber: 38,
         columnNumber: 11
       }
     }), __jsx("link", {
@@ -975,7 +975,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_2___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38,
+        lineNumber: 39,
         columnNumber: 11
       }
     }), __jsx("meta", {
@@ -984,7 +984,7 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_2___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39,
+        lineNumber: 40,
         columnNumber: 11
       }
     }), __jsx("meta", {
@@ -993,25 +993,25 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_2___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40,
+        lineNumber: 41,
         columnNumber: 11
       }
     }), __jsx("meta", {
       name: "title",
-      content: "Name, Place, Animal, Thing | Online Multiplayer",
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 42,
-        columnNumber: 11
-      }
-    }), __jsx("meta", {
-      name: "description",
-      content: "Play 'Name, Place, Animal, Thing' online with friends! The iconic game has moved from our school notebooks to the online world. You can add additional categories besides name, place, animal and thing. Play with up to 10 of your friends online, from anywhere in the world! Variations of the game are called 'Boy, Girl, Fruit, Flower' and 'Petit Bac' or 'Petit Baccalaur\xE9at' in French",
+      content: "Zookilla games",
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 43,
+        columnNumber: 11
+      }
+    }), __jsx("meta", {
+      name: "description",
+      content: "Play zookilla with your friends",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44,
         columnNumber: 11
       }
     })), __jsx("body", {
@@ -1022,28 +1022,28 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_2___default.a {
         padding: 0,
         fontFamily: 'Schoolbell, sans-serif'
       },
-      className: "jsx-4276510453",
+      className: "jsx-122086694",
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 46,
+        lineNumber: 48,
         columnNumber: 8
       }
     }, __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-      id: "4276510453",
+      id: "122086694",
       __self: this
-    }, "body.jsx-4276510453{padding:0px;margin:0px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9mYXJzaGFkZ2hhemFuZmFyaS9Eb2N1bWVudHMvd3d3L25wYXQvcGFnZXMvX2RvY3VtZW50LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQThDc0IsQUFHeUIsWUFDRCxXQUNiIiwiZmlsZSI6Ii9Vc2Vycy9mYXJzaGFkZ2hhemFuZmFyaS9Eb2N1bWVudHMvd3d3L25wYXQvcGFnZXMvX2RvY3VtZW50LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IERvY3VtZW50LCB7IEh0bWwsIEhlYWQsIE1haW4sIE5leHRTY3JpcHQgfSBmcm9tICduZXh0L2RvY3VtZW50JztcbmltcG9ydCB7IFNlcnZlclN0eWxlU2hlZXQgfSBmcm9tIFwic3R5bGVkLWNvbXBvbmVudHNcIjtcblxuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBNeURvY3VtZW50IGV4dGVuZHMgRG9jdW1lbnQge1xuICBzdGF0aWMgYXN5bmMgZ2V0SW5pdGlhbFByb3BzKGN0eCkge1xuICAgIGNvbnN0IHNoZWV0ID0gbmV3IFNlcnZlclN0eWxlU2hlZXQoKTtcbiAgICBjb25zdCBvcmlnaW5hbFJlbmRlclBhZ2UgPSBjdHgucmVuZGVyUGFnZTtcbiAgICB0cnkge1xuICAgICAgY3R4LnJlbmRlclBhZ2UgPSAoKSA9PlxuICAgICAgICBvcmlnaW5hbFJlbmRlclBhZ2Uoe1xuICAgICAgICAgIGVuaGFuY2VBcHA6IEFwcCA9PiBwcm9wcyA9PiBzaGVldC5jb2xsZWN0U3R5bGVzKDxBcHAgey4uLnByb3BzfSAvPilcbiAgICAgICAgfSk7XG4gICAgICBjb25zdCBpbml0aWFsUHJvcHMgPSBhd2FpdCBEb2N1bWVudC5nZXRJbml0aWFsUHJvcHMoY3R4KTtcblxuICAgICAgcmV0dXJuIHtcbiAgICAgICAgLi4uaW5pdGlhbFByb3BzLFxuICAgICAgICBzdHlsZXM6IChcbiAgICAgICAgICA8PlxuICAgICAgICAgICAge2luaXRpYWxQcm9wcy5zdHlsZXN9XG4gICAgICAgICAgICB7c2hlZXQuZ2V0U3R5bGVFbGVtZW50KCl9XG4gICAgICAgICAgPC8+XG4gICAgICAgIClcbiAgICAgIH07XG4gICAgfSBmaW5hbGx5IHtcbiAgICAgIHNoZWV0LnNlYWwoKTtcbiAgICB9XG4gIH1cblxuICByZW5kZXIoKSB7XG4gICAgcmV0dXJuIChcbiAgICAgIDxIdG1sPlxuICAgICAgICA8SGVhZD5cbiAgICAgICAgPGxpbmsgaHJlZj1cImh0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzMj9mYW1pbHk9Um9ib3RvOndnaHRANDAwOzcwMCZkaXNwbGF5PXN3YXBcIiByZWw9XCJzdHlsZXNoZWV0XCIgLz5cbiAgICAgICAgICA8bGluayByZWw9XCJzdHlsZXNoZWV0XCIgaHJlZj1cImh0dHBzOi8vc3RhY2twYXRoLmJvb3RzdHJhcGNkbi5jb20vYm9vdHN0cmFwLzQuNS4yL2Nzcy9ib290c3RyYXAubWluLmNzc1wiIC8+XG5cbiAgICAgICAgICA8bWV0YSBjaGFyc2V0PVwidXRmLThcIiAvPlxuICAgICAgICAgIDxsaW5rIHJlbD1cImljb25cIiBocmVmPVwiJVBVQkxJQ19VUkwlL2Zhdmljb24uaWNvXCIgLz5cbiAgICAgICAgICA8bWV0YSBuYW1lPVwidmlld3BvcnRcIiBjb250ZW50PVwid2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTFcIiAvPlxuICAgICAgICAgIDxtZXRhIG5hbWU9XCJ0aGVtZS1jb2xvclwiIGNvbnRlbnQ9XCIjMDAwMDAwXCIgLz5cblxuICAgICAgICAgIDxtZXRhIG5hbWU9XCJ0aXRsZVwiIGNvbnRlbnQ9XCJOYW1lLCBQbGFjZSwgQW5pbWFsLCBUaGluZyB8IE9ubGluZSBNdWx0aXBsYXllclwiPjwvbWV0YT5cbiAgICAgICAgICA8bWV0YSBuYW1lPVwiZGVzY3JpcHRpb25cIlxuICAgICAgICAgICAgY29udGVudD1cIlBsYXkgJ05hbWUsIFBsYWNlLCBBbmltYWwsIFRoaW5nJyBvbmxpbmUgd2l0aCBmcmllbmRzISBUaGUgaWNvbmljIGdhbWUgaGFzIG1vdmVkIGZyb20gb3VyIHNjaG9vbCBub3RlYm9va3MgdG8gdGhlIG9ubGluZSB3b3JsZC4gWW91IGNhbiBhZGQgYWRkaXRpb25hbCBjYXRlZ29yaWVzIGJlc2lkZXMgbmFtZSwgcGxhY2UsIGFuaW1hbCBhbmQgdGhpbmcuIFBsYXkgd2l0aCB1cCB0byAxMCBvZiB5b3VyIGZyaWVuZHMgb25saW5lLCBmcm9tIGFueXdoZXJlIGluIHRoZSB3b3JsZCEgVmFyaWF0aW9ucyBvZiB0aGUgZ2FtZSBhcmUgY2FsbGVkICdCb3ksIEdpcmwsIEZydWl0LCBGbG93ZXInIGFuZCAnUGV0aXQgQmFjJyBvciAnUGV0aXQgQmFjY2FsYXVyw6lhdCcgaW4gRnJlbmNoXCI+PC9tZXRhPlxuICAgICAgIDwvSGVhZD5cbiAgICAgICA8Ym9keSBzdHlsZT17eyBiYWNrZ3JvdW5kQ29sb3I6ICcjMDAwJywgY29sb3I6ICcjZmZmJywgbWFyZ2luOiAwLCBwYWRkaW5nOiAwLCBmb250RmFtaWx5OiAnU2Nob29sYmVsbCwgc2Fucy1zZXJpZicgfX0+XG4gICAgICAgICAgPHN0eWxlIGpzeD57YFxuICAgICAgICAgIGJvZHkge1xuICAgICAgICAgICAgcGFkZGluZzogMHB4O1xuICAgICAgICAgICAgbWFyZ2luOiAwcHg7XG4gICAgICAgICAgfVxuICAgICAgICBgfTwvc3R5bGU+XG4gICAgICAgICAgPE1haW4gLz5cbiAgICAgICAgICA8TmV4dFNjcmlwdCAvPlxuICAgICAgICA8L2JvZHk+XG4gICAgICA8L0h0bWw+XG4gICAgKTtcbiAgfVxufSJdfQ== */\n/*@ sourceURL=/Users/farshadghazanfari/Documents/www/npat/pages/_document.js */"), __jsx(next_document__WEBPACK_IMPORTED_MODULE_2__["Main"], {
+    }, "body.jsx-122086694{padding:0px;margin:0px;background-image:url('/assets/stopthebus.jpg');background-size:cover;background-repeat:no-repeat;height:100vh;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9mYXJzaGFkZ2hhemFuZmFyaS9Eb2N1bWVudHMvd3d3L25wYXQvcGFnZXMvX2RvY3VtZW50LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQWdEc0IsQUFHeUIsWUFDRCxXQUNvQywrQ0FDekIsc0JBQ00sNEJBQ2YsYUFDQSwwRUFDUyw4RUFDSCw2RkFDSSxtR0FFekIiLCJmaWxlIjoiL1VzZXJzL2ZhcnNoYWRnaGF6YW5mYXJpL0RvY3VtZW50cy93d3cvbnBhdC9wYWdlcy9fZG9jdW1lbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgRG9jdW1lbnQsIHsgSHRtbCwgSGVhZCwgTWFpbiwgTmV4dFNjcmlwdCB9IGZyb20gJ25leHQvZG9jdW1lbnQnO1xuaW1wb3J0IHsgU2VydmVyU3R5bGVTaGVldCB9IGZyb20gXCJzdHlsZWQtY29tcG9uZW50c1wiO1xuXG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIE15RG9jdW1lbnQgZXh0ZW5kcyBEb2N1bWVudCB7XG4gIHN0YXRpYyBhc3luYyBnZXRJbml0aWFsUHJvcHMoY3R4KSB7XG4gICAgY29uc3Qgc2hlZXQgPSBuZXcgU2VydmVyU3R5bGVTaGVldCgpO1xuICAgIGNvbnN0IG9yaWdpbmFsUmVuZGVyUGFnZSA9IGN0eC5yZW5kZXJQYWdlO1xuICAgIHRyeSB7XG4gICAgICBjdHgucmVuZGVyUGFnZSA9ICgpID0+XG4gICAgICAgIG9yaWdpbmFsUmVuZGVyUGFnZSh7XG4gICAgICAgICAgZW5oYW5jZUFwcDogQXBwID0+IHByb3BzID0+IHNoZWV0LmNvbGxlY3RTdHlsZXMoPEFwcCB7Li4ucHJvcHN9IC8+KVxuICAgICAgICB9KTtcbiAgICAgIGNvbnN0IGluaXRpYWxQcm9wcyA9IGF3YWl0IERvY3VtZW50LmdldEluaXRpYWxQcm9wcyhjdHgpO1xuXG4gICAgICByZXR1cm4ge1xuICAgICAgICAuLi5pbml0aWFsUHJvcHMsXG4gICAgICAgIHN0eWxlczogKFxuICAgICAgICAgIDw+XG4gICAgICAgICAgICB7aW5pdGlhbFByb3BzLnN0eWxlc31cbiAgICAgICAgICAgIHtzaGVldC5nZXRTdHlsZUVsZW1lbnQoKX1cbiAgICAgICAgICA8Lz5cbiAgICAgICAgKVxuICAgICAgfTtcbiAgICB9IGZpbmFsbHkge1xuICAgICAgc2hlZXQuc2VhbCgpO1xuICAgIH1cbiAgfVxuXG5cbiAgcmVuZGVyKCkge1xuICAgIHJldHVybiAoXG4gICAgICA8SHRtbD5cbiAgICAgICAgPEhlYWQ+XG4gICAgICAgIDxsaW5rIGhyZWY9XCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PVJvYm90bzp3Z2h0QDQwMDs3MDAmZGlzcGxheT1zd2FwXCIgcmVsPVwic3R5bGVzaGVldFwiIC8+XG4gICAgICAgICAgPGxpbmsgcmVsPVwic3R5bGVzaGVldFwiIGhyZWY9XCJodHRwczovL3N0YWNrcGF0aC5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC80LjUuMi9jc3MvYm9vdHN0cmFwLm1pbi5jc3NcIiAvPlxuXG4gICAgICAgICAgPG1ldGEgY2hhcnNldD1cInV0Zi04XCIgLz5cbiAgICAgICAgICA8bGluayByZWw9XCJpY29uXCIgaHJlZj1cIiVQVUJMSUNfVVJMJS9mYXZpY29uLmljb1wiIC8+XG4gICAgICAgICAgPG1ldGEgbmFtZT1cInZpZXdwb3J0XCIgY29udGVudD1cIndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xXCIgLz5cbiAgICAgICAgICA8bWV0YSBuYW1lPVwidGhlbWUtY29sb3JcIiBjb250ZW50PVwiIzAwMDAwMFwiIC8+XG5cbiAgICAgICAgICA8bWV0YSBuYW1lPVwidGl0bGVcIiBjb250ZW50PVwiWm9va2lsbGEgZ2FtZXNcIj48L21ldGE+XG4gICAgICAgICAgPG1ldGEgbmFtZT1cImRlc2NyaXB0aW9uXCJcbiAgICAgICAgICAgIGNvbnRlbnQ9XCJQbGF5IHpvb2tpbGxhIHdpdGggeW91ciBmcmllbmRzXCI+PC9tZXRhPlxuICAgICAgIDwvSGVhZD5cbiAgICAgICBcbiAgICAgICA8Ym9keSBzdHlsZT17eyBiYWNrZ3JvdW5kQ29sb3I6ICcjMDAwJywgY29sb3I6ICcjZmZmJywgbWFyZ2luOiAwLCBwYWRkaW5nOiAwLCBmb250RmFtaWx5OiAnU2Nob29sYmVsbCwgc2Fucy1zZXJpZicgfX0+XG4gICAgICAgICAgPHN0eWxlIGpzeD57YFxuICAgICAgICAgIGJvZHkge1xuICAgICAgICAgICAgcGFkZGluZzogMHB4O1xuICAgICAgICAgICAgbWFyZ2luOiAwcHg7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy9hc3NldHMvc3RvcHRoZWJ1cy5qcGcnKTsgLy8gUmVwbGFjZSB3aXRoIHRoZSBjb3JyZWN0IHBhdGhcbiAgICAgICAgICAgIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gICAgICAgICAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICAgICAgICAgICAgaGVpZ2h0OiAxMDB2aDtcbiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgICAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgICAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgICAgIFxuICAgICAgICAgIH1cbiAgICAgICAgYH08L3N0eWxlPlxuICAgICAgICAgIDxNYWluIC8+XG4gICAgICAgICAgPE5leHRTY3JpcHQgLz5cbiAgICAgICAgPC9ib2R5PlxuICAgICAgPC9IdG1sPlxuICAgICk7XG4gIH1cbn0iXX0= */\n/*@ sourceURL=/Users/farshadghazanfari/Documents/www/npat/pages/_document.js */"), __jsx(next_document__WEBPACK_IMPORTED_MODULE_2__["Main"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53,
+        lineNumber: 64,
         columnNumber: 11
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_2__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54,
+        lineNumber: 65,
         columnNumber: 11
       }
     })));

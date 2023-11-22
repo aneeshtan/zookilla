@@ -42,6 +42,21 @@ const BoldContent = styled.span`
   font-weight: bold;
   font-size: 1.2em;
 `
+export const HelpIcon = styled.div`
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #007bff; /* Blue background */
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px; /* Vertically center the question mark */
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: adds shadow for depth */
+`;
 
 let tickingSound;
 
