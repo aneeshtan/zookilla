@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from "styled-components";
-
-
+ 
+ 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
@@ -45,23 +45,23 @@ export default class MyDocument extends Document {
             content="Play zookilla with your friends"></meta>
        </Head>
        
-       <body style={{ backgroundColor: '#000', color: '#fff', margin: 0, padding: 0, fontFamily: 'Schoolbell, sans-serif' }}>
-          <style jsx>{`
-          body {
-            padding: 0px;
-            margin: 0px;
-            background-image: url('/assets/stopthebus.jpg'); // Replace with the correct path
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+       <body style={{
+          padding: 0,
+          margin: 0,
+          backgroundImage: "url('/assets/stopthebus.jpg')",
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          height: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontFamily: "'Schoolbell', sans-serif",
+          color: '#fff',
+          backgroundColor: '#000'
+        }}>
           
-          }
-        `}</style>
-          <Main />
+        <Main />
           <NextScript />
         </body>
       </Html>
