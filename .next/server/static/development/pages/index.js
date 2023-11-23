@@ -1614,6 +1614,11 @@ const ResultsTable = ({
       setGameData(prevGameData => _objectSpread({}, prevGameData, {}, newGameData));
     });
   }, []);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    if (gameState.scoringType === "ai" && gameData.animalsSet.size > 0) {
+      scoreEntriesAI();
+    }
+  }, [gameState, round, gameData.animalsSet, gameData.namesSet, gameData.thingsSet, gameData.placesSet]); // Add animalsSet as a dependency
 
   const scoreEntriesAI = async () => {
     if (gameData.animalsSet.size === 0) {
@@ -1688,19 +1693,22 @@ const ResultsTable = ({
     }
   };
 
+  const sumAllScores = scores => Object.keys(scores).map(cat => scores[cat]).reduce((a, b) => a + b, 0);
+
   let totalScore = 0;
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    if (gameState.scoringType === "ai" && gameData.animalsSet.size > 0) {
-      scoreEntriesAI();
-    }
-  }, [gameState, round, gameData.animalsSet, gameData.namesSet, gameData.thingsSet, gameData.placesSet]); // Add animalsSet as a dependency
+
+  if (gameState.scoringType === "ai") {
+    totalScore = gameState.users.reduce((total, user) => {
+      return total + sumAllScores(scores[user.id] || {});
+    }, 0);
+  }
 
   if (loading) {
     return __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_2__["Spinner"], {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 231,
+        lineNumber: 242,
         columnNumber: 12
       }
     });
@@ -1710,7 +1718,7 @@ const ResultsTable = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 237,
+      lineNumber: 248,
       columnNumber: 3
     }
   }, gameState.users.map(user => __jsx(Paper, {
@@ -1718,14 +1726,14 @@ const ResultsTable = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 239,
+      lineNumber: 250,
       columnNumber: 5
     }
   }, __jsx("h2", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 240,
+      lineNumber: 251,
       columnNumber: 7
     }
   }, user.name), gameState.categories.map(category => __jsx("div", {
@@ -1733,21 +1741,21 @@ const ResultsTable = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 242,
+      lineNumber: 253,
       columnNumber: 9
     }
   }, category, ": ", __jsx(Submission, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 243,
+      lineNumber: 254,
       columnNumber: 23
     }
   }, user.responses[round][category] || '-'), __jsx("span", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 244,
+      lineNumber: 255,
       columnNumber: 11
     }
   }, " Score: ", scores[user.id] && scores[user.id][category]))), __jsx("h3", {
@@ -1757,35 +1765,35 @@ const ResultsTable = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 247,
+      lineNumber: 258,
       columnNumber: 7
     }
   }, "Total Score: ", Object.values(scores[user.id] || {}).reduce((a, b) => a + b, 0))))) : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, gameState.scoringType === "cross" ? __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_2__["FlexContainer"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 253,
+      lineNumber: 264,
       columnNumber: 42
     }
   }, __jsx("h1", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 253,
+      lineNumber: 264,
       columnNumber: 57
     }
   }, "You are scoring for ", __jsx(Submission, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 253,
+      lineNumber: 264,
       columnNumber: 81
     }
   }, scorePartner.name), "!")) : false, __jsx(TableContainer, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 254,
+      lineNumber: 265,
       columnNumber: 5
     }
   }, users.map(user => __jsx(Paper, {
@@ -1793,7 +1801,7 @@ const ResultsTable = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 255,
+      lineNumber: 266,
       columnNumber: 26
     }
   }, __jsx("h2", {
@@ -1804,21 +1812,21 @@ const ResultsTable = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 256,
+      lineNumber: 267,
       columnNumber: 9
     }
   }, __jsx("span", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 256,
+      lineNumber: 267,
       columnNumber: 74
     }
   }, user.name), user.id === scoringId ? __jsx("span", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 257,
+      lineNumber: 268,
       columnNumber: 36
     }
   }, "Score") : false), categories.map(category => {
@@ -1829,7 +1837,7 @@ const ResultsTable = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 262,
+        lineNumber: 273,
         columnNumber: 18
       }
     }, similar.value && selfScoreCard ? __jsx("span", {
@@ -1839,7 +1847,7 @@ const ResultsTable = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 263,
+        lineNumber: 274,
         columnNumber: 47
       }
     }, scorePartner.name || 'You', " and ", similar.name, " put down the same word for ", category) : false, __jsx("div", {
@@ -1853,7 +1861,7 @@ const ResultsTable = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 264,
+        lineNumber: 275,
         columnNumber: 13
       }
     }, __jsx("div", {
@@ -1864,21 +1872,21 @@ const ResultsTable = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 265,
+        lineNumber: 276,
         columnNumber: 15
       }
     }, category, ":", `  `, " ", __jsx(Submission, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 266,
+        lineNumber: 277,
         columnNumber: 35
       }
     }, user.responses[round][category] || '-')), selfScoreCard ? user.responses[round][category] ? __jsx(InputContainer, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 269,
+        lineNumber: 280,
         columnNumber: 51
       }
     }, __jsx(NumberInput, {
@@ -1889,14 +1897,14 @@ const ResultsTable = ({
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 270,
+        lineNumber: 281,
         columnNumber: 19
       }
     }), " ") : __jsx(NumberContainer, {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 270,
+        lineNumber: 281,
         columnNumber: 167
       }
     }, "0") : ''));
@@ -1904,17 +1912,17 @@ const ResultsTable = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 276,
+      lineNumber: 287,
       columnNumber: 34
     }
   }, `Total Score: ${sumAllScores(currentScore)}`) : false)))), __jsx(Container, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 281,
+      lineNumber: 292,
       columnNumber: 5
     }
-  }, !scoreSubmitted ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+  }, `saved Score:`, totalScore, !scoreSubmitted ? __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_2__["Button"], {
     onClick: event => {
       event.preventDefault();
       handleSubmitScore(totalScore, scoringId);
@@ -1922,28 +1930,28 @@ const ResultsTable = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 283,
+      lineNumber: 296,
       columnNumber: 9
     }
   }, "Go Next!")) : __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_2__["FlexColumn"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 287,
+      lineNumber: 300,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 288,
+      lineNumber: 301,
       columnNumber: 11
     }
   }, "Waiting for others"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_2__["Spinner"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 289,
+      lineNumber: 302,
       columnNumber: 11
     }
   }))));
@@ -1969,8 +1977,6 @@ const similarityCheck = (category, users, currentUserId, round) => {
     name
   };
 };
-
-const sumAllScores = scores => Object.keys(scores).map(cat => scores[cat]).reduce((a, b) => a + b, 0);
 
 const NumberInput = ({
   value,
@@ -2008,7 +2014,7 @@ const NumberInput = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 330,
+      lineNumber: 342,
       columnNumber: 12
     }
   }, "-"), numberValue, __jsx(StyledIncrementButton, {
@@ -2017,7 +2023,7 @@ const NumberInput = ({
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 330,
+      lineNumber: 342,
       columnNumber: 128
     }
   }, "+"));
@@ -2862,7 +2868,6 @@ __webpack_require__.r(__webpack_exports__);
 const theme = {
   backgroundColor: 'pink',
   buttonBlue: '#24A0ED',
-  font: 'Schoolbell',
   colors: {
     peach: "#fe6f5e",
     mustard: "#ffcc33",

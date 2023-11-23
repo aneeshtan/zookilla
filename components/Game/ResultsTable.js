@@ -142,6 +142,14 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
     });
   }, []);
 
+  useEffect(() => {
+    if(gameState.scoringType === "ai" && gameData.animalsSet.size > 0) {
+      scoreEntriesAI();
+    }
+  }, [gameState, round, gameData.animalsSet, gameData.namesSet, gameData.thingsSet, gameData.placesSet]); // Add animalsSet as a dependency
+  
+
+
   const scoreEntriesAI = async () => {
 
     if (gameData.animalsSet.size === 0) {
@@ -216,15 +224,18 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
     }
 };
 
+const sumAllScores = (scores) => Object.keys(scores).map(cat => scores[cat]).reduce((a, b) => a + b, 0)
 
 
   let totalScore = 0;
-  useEffect(() => {
-    if(gameState.scoringType === "ai" && gameData.animalsSet.size > 0) {
-      scoreEntriesAI();
-    }
-  }, [gameState, round, gameData.animalsSet, gameData.namesSet, gameData.thingsSet, gameData.placesSet]); // Add animalsSet as a dependency
-  
+
+  if (gameState.scoringType === "ai") {
+    totalScore = gameState.users.reduce((total, user) => {
+      return total + sumAllScores(scores[user.id] || {});
+    }, 0);
+  }
+
+
 
 
   if (loading) {
@@ -279,6 +290,8 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
     </>
     )}
     <Container>
+    {`saved Score:`}
+      {totalScore}
       {!scoreSubmitted ? <>
         <Button onClick={(event) => {
           event.preventDefault()
@@ -310,7 +323,6 @@ const similarityCheck = (category, users, currentUserId, round) => {
   return { value, name };
 }
 
-const sumAllScores = (scores) => Object.keys(scores).map(cat => scores[cat]).reduce((a, b) => a + b, 0)
 
 const NumberInput = ({ value, currentScore, setCurrentScore, category }) => {
   const [numberValue, setNumberValue] = useState(value)

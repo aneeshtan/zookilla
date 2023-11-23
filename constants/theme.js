@@ -1,7 +1,6 @@
 const theme = {
   backgroundColor: 'pink',
   buttonBlue: '#24A0ED',
-  font: 'Schoolbell',
   colors: {
     peach: "#fe6f5e",
     mustard: "#ffcc33",

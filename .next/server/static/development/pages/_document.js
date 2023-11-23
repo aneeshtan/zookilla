@@ -1014,7 +1014,6 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        fontFamily: "'sans-serif",
         color: '#000',
         backgroundColor: '#DAF5F3'
       },
@@ -1028,14 +1027,14 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63,
+        lineNumber: 62,
         columnNumber: 9
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64,
+        lineNumber: 63,
         columnNumber: 11
       }
     })));

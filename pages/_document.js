@@ -55,7 +55,6 @@ export default class MyDocument extends Document {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          fontFamily: "'sans-serif",
           color: '#000',
           backgroundColor: '#DAF5F3'
         }}>
