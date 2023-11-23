@@ -8,6 +8,13 @@ const Container = styled.div`
   justify-content: space-around;
   text-align: center;
   font-size: 1.5em;
+  max-height: 80vh; // Maximum height, adjust as needed
+  margin: auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; // Enable vertical scrolling
 `
 
 const ScoreTable = ({ maxRounds, gameState, round, handleStartNextRound }) => {

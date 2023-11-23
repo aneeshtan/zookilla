@@ -24,7 +24,7 @@ const MultiSelect = styled.select`
   border: 1px solid #ccc;
   background-color: white;
   box-sizing: border-box;
-  height: 200px; // Adjust height as needed
+  height: 150px; // Adjust height as needed
   overflow-y: auto;
 `;
 
@@ -128,14 +128,14 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
             <label htmlFor="name">Your Name:</label>
             <StyledInput maxLength="15" name="name" type="text" onChange={(event) => setName(event.target.value)} />
           </p>
-          <h2>Number of rounds:</h2>
+          <h4>Number of rounds:</h4>
           <FlexContainer>
             {options.map(option => <CheckBoxContainer key={option}>
               <input type="radio" id={option} name="rounds" value={option} onChange={(event) => setRounds(event.target.value)} checked={rounds === option} />
               <label htmlFor={option}>{option}</label>
             </CheckBoxContainer>)}
           </FlexContainer>
-          <h2>Select categories:</h2>
+          <h4>Select Topics:</h4>
           <FlexContainer style={{ maxWidth: "450px" }}>
               <MultiSelect multiple value={selectedCategories} onChange={(event) => {
                 const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);

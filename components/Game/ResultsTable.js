@@ -206,16 +206,24 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
           return -3; // Deduct points if it doesn't start with the round letter
         }
 
+        if (formattedAnswer.length === 1) {
+          console.log(`'${formattedAnswer}' is only one letter.`);
+          return 0; // Deduct points if the answer is only one letter
+        }else{
 
-        if (isExactMatch) {
-            console.log(`'${formattedAnswer}' is an exact match in ${category}.`);
-            return 10; // Exact match
-        } else if (isSimilarMatch) {
-            console.log(`'${formattedAnswer}' is a similar match in ${category}.`);
-            return 5; // Similar match
-        } else {
-            console.log(`'${formattedAnswer}' is not found in the ${category} set.`);
+           if (isExactMatch) {
+              console.log(`'${formattedAnswer}' is an exact match in ${category}.`);
+              return 10; // Exact match
+          } else if (isSimilarMatch) {
+              console.log(`'${formattedAnswer}' is a similar match in ${category}.`);
+              return 5; // Similar match
+          } else {
+              console.log(`'${formattedAnswer}' is not found in the ${category} set.`);
+          }
+
         }
+
+
 
         return 0; // Answer is incorrect or not in the category
     } catch (error) {
