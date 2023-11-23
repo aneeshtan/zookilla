@@ -9,32 +9,37 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var human_readable_ids__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! human-readable-ids */ "./node_modules/human-readable-ids/index.js");
-/* harmony import */ var human_readable_ids__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(human_readable_ids__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _StyledComponents__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StyledComponents */ "./components/StyledComponents.js");
-/* harmony import */ var _constants_websocket__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../constants/websocket */ "./constants/websocket.js");
-
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var human_readable_ids__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! human-readable-ids */ "./node_modules/human-readable-ids/index.js");
+/* harmony import */ var human_readable_ids__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(human_readable_ids__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _StyledComponents__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StyledComponents */ "./components/StyledComponents.js");
+/* harmony import */ var _constants_websocket__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../constants/websocket */ "./constants/websocket.js");
 var _this = undefined,
     _jsxFileName = "/Users/farshadghazanfari/Documents/www/npat/components/Create.js";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
 
-var FormContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
+var FormContainer = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "Create__FormContainer",
   componentId: "sc-1xf6e0b-0"
-})(["padding:40px;padding-top:30px;display:flex;flex-direction:column;text-align:center;"]);
-var CheckBoxContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
-  displayName: "Create__CheckBoxContainer",
+})(["max-width:500px;max-height:80vh;margin:auto;padding:20px;background:rgba(255,255,255,0.8);border-radius:10px;box-shadow:0 4px 6px rgba(0,0,0,0.1);overflow-y:auto;"]);
+var MultiSelect = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].select.withConfig({
+  displayName: "Create__MultiSelect",
   componentId: "sc-1xf6e0b-1"
+})(["width:100%;padding:10px;margin:10px 0;border-radius:5px;border:1px solid #ccc;background-color:white;box-sizing:border-box;height:200px;overflow-y:auto;"]);
+var Select = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].select.withConfig({
+  displayName: "Create__Select",
+  componentId: "sc-1xf6e0b-2"
+})(["width:100%;padding:10px;margin:10px 0;border-radius:5px;border:1px solid #ccc;background-color:white;box-sizing:border-box;"]);
+var CheckBoxContainer = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "Create__CheckBoxContainer",
+  componentId: "sc-1xf6e0b-3"
 })(["margin:0 20px 20px 0;"]);
 
 var Create = function Create(_ref) {
@@ -42,19 +47,19 @@ var Create = function Create(_ref) {
       setGameData = _ref.setGameData,
       setGamePlaying = _ref.setGamePlaying;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       name = _useState[0],
       setName = _useState[1];
 
-  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("5"),
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("5"),
       rounds = _useState2[0],
       setRounds = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])("ai"),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("ai"),
       scoringType = _useState3[0],
       setScoringType = _useState3[1];
 
-  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
+  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
     Name: true,
     Place: true,
     Animal: true,
@@ -84,7 +89,7 @@ var Create = function Create(_ref) {
   }; // Monzo easter egg
 
 
-  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (name === "Monzo") {
       setCategories(Object.assign({}, categories, {
         "Office Dog Breeds": false,
@@ -108,7 +113,7 @@ var Create = function Create(_ref) {
     categoriesArray.forEach(function (cat) {
       if (categories[cat]) cats.push(cat);
     });
-    _constants_websocket__WEBPACK_IMPORTED_MODULE_5__["socket"].emit('create', {
+    _constants_websocket__WEBPACK_IMPORTED_MODULE_4__["socket"].emit('create', {
       name: name,
       code: code,
       rounds: rounds,
@@ -132,32 +137,44 @@ var Create = function Create(_ref) {
   };
 
   var disabled = !name || !checkAtleastOneSelected(categoriesArray, categories);
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      selectedCategories = _useState5[0],
+      setSelectedCategories = _useState5[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    var defaultSelected = Object.keys(categories).filter(function (cat) {
+      return categories[cat];
+    });
+    setSelectedCategories(defaultSelected);
+  }, []); // Empty dependency array ensures this runs once on mount
+
   return __jsx(FormContainer, {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 124,
       columnNumber: 5
     }
   }, __jsx("form", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 125,
       columnNumber: 7
     }
-  }, __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["FlexColumn"], {
+  }, __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_3__["FlexColumn"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 97,
+      lineNumber: 126,
       columnNumber: 9
     }
   }, __jsx("p", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 127,
       columnNumber: 11
     }
   }, __jsx("label", {
@@ -165,10 +182,10 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99,
+      lineNumber: 128,
       columnNumber: 13
     }
-  }, "Your Name:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["StyledInput"], {
+  }, "Your Name:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_3__["StyledInput"], {
     maxLength: "15",
     name: "name",
     type: "text",
@@ -178,21 +195,21 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 129,
       columnNumber: 13
     }
   })), __jsx("h2", {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 131,
       columnNumber: 11
     }
-  }, "Select number of rounds:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["FlexContainer"], {
+  }, "Number of rounds:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_3__["FlexContainer"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
+      lineNumber: 132,
       columnNumber: 11
     }
   }, options.map(function (option) {
@@ -201,7 +218,7 @@ var Create = function Create(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104,
+        lineNumber: 133,
         columnNumber: 36
       }
     }, __jsx("input", {
@@ -216,7 +233,7 @@ var Create = function Create(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 105,
+        lineNumber: 134,
         columnNumber: 15
       }
     }), __jsx("label", {
@@ -224,7 +241,7 @@ var Create = function Create(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 106,
+        lineNumber: 135,
         columnNumber: 15
       }
     }, option));
@@ -232,158 +249,88 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 138,
       columnNumber: 11
     }
-  }, "Select categories:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["FlexContainer"], {
+  }, "Select categories:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_3__["FlexContainer"], {
     style: {
       maxWidth: "450px"
     },
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 139,
       columnNumber: 11
     }
-  }, categoriesArray.map(function (cat) {
-    return __jsx(CheckBoxContainer, {
+  }, __jsx(MultiSelect, {
+    multiple: true,
+    value: selectedCategories,
+    onChange: function onChange(event) {
+      var selectedOptions = Array.from(event.target.selectedOptions, function (option) {
+        return option.value;
+      });
+      setSelectedCategories(selectedOptions);
+    },
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 140,
+      columnNumber: 15
+    }
+  }, Object.keys(categories).map(function (cat) {
+    return __jsx("option", {
       key: cat,
+      value: cat,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 111,
-        columnNumber: 41
+        lineNumber: 145,
+        columnNumber: 19
       }
-    }, __jsx("input", {
-      type: "checkbox",
-      id: cat,
-      name: "categories",
-      onChange: function onChange(event) {
-        setCategories(Object.assign({}, categories, Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, cat, event.target.checked)));
-      },
-      checked: categories[cat],
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 112,
-        columnNumber: 15
-      }
-    }), __jsx("label", {
-      htmlFor: cat,
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 115,
-        columnNumber: 15
-      }
-    }, cat));
-  })), __jsx("h2", {
+    }, cat);
+  }))), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_3__["FlexContainer"], {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118,
+      lineNumber: 149,
       columnNumber: 11
     }
-  }, "Scoring Rules:"), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["FlexContainer"], {
+  }, __jsx(Select, {
+    value: scoringType,
+    onChange: function onChange(event) {
+      return setScoringType(event.target.value);
+    },
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 119,
-      columnNumber: 11
-    }
-  }, __jsx(CheckBoxContainer, {
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 120,
+      lineNumber: 150,
       columnNumber: 13
     }
-  }, __jsx("input", {
-    type: "radio",
-    id: "cross",
-    name: "scoring",
+  }, __jsx("option", {
     value: "cross",
-    onChange: function onChange(event) {
-      return setScoringType(event.target.value);
-    },
-    checked: scoringType === "cross",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 154,
       columnNumber: 15
     }
-  }), __jsx("label", {
-    htmlFor: "cross",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 122,
-      columnNumber: 15
-    }
-  }, "Score Each Other")), __jsx(CheckBoxContainer, {
-    key: "self",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 124,
-      columnNumber: 13
-    }
-  }, __jsx("input", {
-    type: "radio",
-    id: "self",
-    name: "scoring",
+  }, "Score Each Other"), __jsx("option", {
     value: "self",
-    onChange: function onChange(event) {
-      return setScoringType(event.target.value);
-    },
-    checked: scoringType === "self",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 125,
+      lineNumber: 155,
       columnNumber: 15
     }
-  }), __jsx("label", {
-    htmlFor: "self",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 126,
-      columnNumber: 15
-    }
-  }, "Score Yourself")), __jsx(CheckBoxContainer, {
-    key: "ai",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 128,
-      columnNumber: 13
-    }
-  }, __jsx("input", {
-    type: "radio",
-    id: "ai",
-    name: "scoring",
+  }, "Score Yourself"), __jsx("option", {
     value: "ai",
-    onChange: function onChange(event) {
-      return setScoringType(event.target.value);
-    },
-    checked: scoringType === "ai",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 156,
       columnNumber: 15
     }
-  }), __jsx("label", {
-    htmlFor: "ai",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 130,
-      columnNumber: 15
-    }
-  }, "Score by AI"))), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+  }, "Score by AI"))), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_3__["Button"], {
     disabled: disabled,
     fontSize: "25px",
     padding: "15px",
@@ -398,10 +345,10 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
+      lineNumber: 159,
       columnNumber: 11
     }
-  }, "Create Room")), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_4__["Button"], {
+  }, "Create Room")), __jsx(_StyledComponents__WEBPACK_IMPORTED_MODULE_3__["Button"], {
     fontSize: "25px",
     padding: "15px",
     minWidth: "220px",
@@ -411,7 +358,7 @@ var Create = function Create(_ref) {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 143,
+      lineNumber: 168,
       columnNumber: 9
     }
   }, "Cancel")));

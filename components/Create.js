@@ -6,13 +6,37 @@ import { Button, StyledInput, FlexColumn, FlexContainer } from './StyledComponen
 import { socket } from '../constants/websocket'
 
 const FormContainer = styled.div`
-  padding: 40px;
-  padding-top: 30px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-`
+  max-width: 500px;
+  max-height: 80vh; // Maximum height, adjust as needed
+  margin: auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; // Enable vertical scrolling
+`;
 
+const MultiSelect = styled.select`
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-sizing: border-box;
+  height: 200px; // Adjust height as needed
+  overflow-y: auto;
+`;
+
+const Select = styled.select`
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-sizing: border-box;
+`;
 const CheckBoxContainer = styled.div`
   margin: 0 20px 20px 0;
 `
@@ -90,6 +114,11 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
   }
 
   let disabled = !name || !checkAtleastOneSelected(categoriesArray, categories)
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  useEffect(() => {
+    const defaultSelected = Object.keys(categories).filter(cat => categories[cat]);
+    setSelectedCategories(defaultSelected);
+  }, []); // Empty dependency array ensures this runs once on mount
 
   return (
     <FormContainer>
@@ -99,7 +128,7 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
             <label htmlFor="name">Your Name:</label>
             <StyledInput maxLength="15" name="name" type="text" onChange={(event) => setName(event.target.value)} />
           </p>
-          <h2>Select number of rounds:</h2>
+          <h2>Number of rounds:</h2>
           <FlexContainer>
             {options.map(option => <CheckBoxContainer key={option}>
               <input type="radio" id={option} name="rounds" value={option} onChange={(event) => setRounds(event.target.value)} checked={rounds === option} />
@@ -108,28 +137,24 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
           </FlexContainer>
           <h2>Select categories:</h2>
           <FlexContainer style={{ maxWidth: "450px" }}>
-            {categoriesArray.map(cat => <CheckBoxContainer key={cat}>
-              <input type="checkbox" id={cat} name="categories" onChange={(event) => {
-                setCategories(Object.assign({}, categories, { [cat]: event.target.checked }))
-              }} checked={categories[cat]} />
-              <label htmlFor={cat}>{cat}</label>
-            </CheckBoxContainer>)}
-          </FlexContainer>
-          <h2>Scoring Rules:</h2>
+              <MultiSelect multiple value={selectedCategories} onChange={(event) => {
+                const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
+                setSelectedCategories(selectedOptions);
+              }}>
+                {Object.keys(categories).map(cat => (
+                  <option key={cat} value={cat}>{cat}</option>
+                ))}
+              </MultiSelect>
+            </FlexContainer>
           <FlexContainer>
-            <CheckBoxContainer>
-              <input type="radio" id="cross" name="scoring" value="cross" onChange={(event) => setScoringType(event.target.value)} checked={scoringType === "cross"} />
-              <label htmlFor="cross">Score Each Other</label>
-            </CheckBoxContainer>
-            <CheckBoxContainer key="self">
-              <input type="radio" id="self" name="scoring" value="self" onChange={(event) => setScoringType(event.target.value)} checked={scoringType === "self"} />
-              <label htmlFor="self">Score Yourself</label>
-            </CheckBoxContainer>
-            <CheckBoxContainer key="ai">
-              <input type="radio" id="ai" name="scoring" value="ai" onChange={(event) => setScoringType(event.target.value)} checked={scoringType === "ai"} />
-              <label htmlFor="ai">Score by AI</label>
-            </CheckBoxContainer>
-
+            <Select
+              value={scoringType}
+              onChange={(event) => setScoringType(event.target.value)}
+            >
+              <option value="cross">Score Each Other</option>
+              <option value="self">Score Yourself</option>
+              <option value="ai">Score by AI</option>
+            </Select>
           </FlexContainer>
           <Button disabled={disabled} fontSize="25px" padding="15px" minWidth="220px" onClick={(event) => {
 
