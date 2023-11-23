@@ -30,9 +30,9 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
     Movies: false,
     "TV shows": false,
     Fruits: false,
-    Vegetables: false,
+    //Vegetables: false,
     Books: false,
-    Subjects: false,
+    //Subjects: false,
     Celebrities: false,
     Musicians: false,
     Instruments: false
