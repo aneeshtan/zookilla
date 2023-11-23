@@ -42,22 +42,32 @@ export default class MyDocument extends Document {
           <meta name="title" content="Zookilla games"></meta>
           <meta name="description"
             content="Play zookilla with your friends"></meta>
+          <style>{`
+            body {
+              padding: 0;
+              margin: 0;
+              height: 100vh;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              color: #000;
+              background-color: #DAF5F3;
+              background-image: url(assets/stopthebus-L.jpg);
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center center;
+            }
+            @media (max-width: 768px) {
+              body {
+                background-image: url(assets/stopthebus-M.jpg); /* Mobile background image */
+              }
+            }
+          `}</style>
+          
        </Head>
        
-       <body style={{
-          padding: 0,
-          margin: 0,
-          backgroundImage: "url('/assets/stopthebus-L.jpg')",
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: '#000',
-          backgroundColor: '#DAF5F3'
-        }}>
+       <body >
           
         <Main />
           <NextScript />

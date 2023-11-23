@@ -15,12 +15,10 @@ const Landing = () => {
   const [soundOn, toggleSound] = useState(true);
 
   return (
-    <div className="container-fluid">
-      <div className="text-center mt-5 mb-4"> 
-      </div>
+    <div className="container-fluid" >
       <div className="d-flex flex-column align-items-center justify-content-center">
-        <div className="card bg-light text-dark mb-3">
-          <div className="card-body">
+        <div className="card text-dark mb-3" style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
+          <div className="card-body" >
             {isGamePlaying ? (
               <Play soundOn={soundOn} setGamePlaying={setGamePlaying} gameData={gameData} />
             ) : showInstructions ? (
@@ -28,20 +26,20 @@ const Landing = () => {
             ) : (
               <>
                 {!showJoinForm && !showCreateForm && (
-                  <div className="button-container">
-                    <button className="btn btn-success my-3 mx-2" onClick={() => {
-                      toggleJoinForm(true); 
-                      toggleCreateForm(false);
-                    }}>
-                      Join Existing Game
-                    </button>
-                    <button className="btn btn-danger my-3 mx-2" onClick={() => {
-                      toggleJoinForm(false);
-                      toggleCreateForm(true);
-                    }}>
-                      Create New Game
-                    </button>
-                  </div>
+                  <div className="button-container d-flex flex-row justify-content-center">
+  <button className="btn btn-success my-3 mx-2" onClick={() => {
+    toggleJoinForm(true); 
+    toggleCreateForm(false);
+  }}>
+    Join Existing Game
+  </button>
+  <button className="btn btn-danger my-3 mx-2" onClick={() => {
+    toggleJoinForm(false);
+    toggleCreateForm(true);
+  }}>
+    Create New Game
+  </button>
+</div>
                 )}
                 {showJoinForm && <Join cancel={toggleJoinForm} setGamePlaying={setGamePlaying} setGameData={setGameData} />}
                 {showCreateForm && <Create setGamePlaying={setGamePlaying} setGameData={setGameData} cancel={toggleCreateForm} />}

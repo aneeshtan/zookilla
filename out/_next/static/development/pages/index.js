@@ -63,9 +63,9 @@ var Create = function Create(_ref) {
     Movies: false,
     "TV shows": false,
     Fruits: false,
-    Vegetables: false,
+    //Vegetables: false,
     Books: false,
-    Subjects: false,
+    //Subjects: false,
     Celebrities: false,
     Musicians: false,
     Instruments: false
@@ -2742,27 +2742,22 @@ var Landing = function Landing() {
       columnNumber: 5
     }
   }, __jsx("div", {
-    className: "text-center mt-5 mb-4",
+    className: "d-flex flex-column align-items-center justify-content-center",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19,
       columnNumber: 7
     }
-  }), __jsx("div", {
-    className: "d-flex flex-column align-items-center justify-content-center",
-    __self: _this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 7
-    }
   }, __jsx("div", {
-    className: "card bg-light text-dark mb-3",
+    className: "card text-dark mb-3",
+    style: {
+      backgroundColor: 'rgba(255, 255, 255, 0.9)'
+    },
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 20,
       columnNumber: 9
     }
   }, __jsx("div", {
@@ -2770,7 +2765,7 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 21,
       columnNumber: 11
     }
   }, isGamePlaying ? __jsx(_Game_Play__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -2780,7 +2775,7 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 23,
       columnNumber: 15
     }
   }) : showInstructions ? __jsx(_Instructions__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -2790,15 +2785,15 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 25,
       columnNumber: 15
     }
   }) : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, !showJoinForm && !showCreateForm && __jsx("div", {
-    className: "button-container",
+    className: "button-container d-flex flex-row justify-content-center",
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 29,
       columnNumber: 19
     }
   }, __jsx("button", {
@@ -2810,8 +2805,8 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
-      columnNumber: 21
+      lineNumber: 30,
+      columnNumber: 3
     }
   }, "Join Existing Game"), __jsx("button", {
     className: "btn btn-danger my-3 mx-2",
@@ -2822,8 +2817,8 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
-      columnNumber: 21
+      lineNumber: 36,
+      columnNumber: 3
     }
   }, "Create New Game")), showJoinForm && __jsx(_Join__WEBPACK_IMPORTED_MODULE_1__["default"], {
     cancel: toggleJoinForm,
@@ -2832,7 +2827,7 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 44,
       columnNumber: 34
     }
   }), showCreateForm && __jsx(_Create__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2842,7 +2837,7 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 45,
       columnNumber: 36
     }
   })))), __jsx(_Game_GameHeader__WEBPACK_IMPORTED_MODULE_5__["HelpIcon"], {
@@ -2852,7 +2847,7 @@ var Landing = function Landing() {
     __self: _this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 50,
       columnNumber: 9
     }
   }, "?")));
@@ -18286,27 +18281,36 @@ function Home() {
       lineNumber: 10,
       columnNumber: 9
     }
-  }, "Zookilla! | Online Multiplayer Game"), __jsx("link", {
-    rel: "icon",
-    href: "https://zookilla.com/favicon.ico",
+  }, "Zookilla! | Online Multiplayer Game"), __jsx("meta", {
+    name: "viewport",
+    content: "width=device-width, initial-scale=1",
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11,
       columnNumber: 9
     }
+  }), __jsx("link", {
+    rel: "icon",
+    href: "https://zookilla.com/favicon.ico",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 9
+    }
   })), __jsx("main", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 16,
       columnNumber: 7
     }
   }, __jsx(_components_Landing__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 17,
       columnNumber: 9
     }
   })));

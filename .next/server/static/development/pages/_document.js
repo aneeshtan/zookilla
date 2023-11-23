@@ -1002,39 +1002,53 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
         lineNumber: 43,
         columnNumber: 11
       }
-    })), __jsx("body", {
-      style: {
-        padding: 0,
-        margin: 0,
-        backgroundImage: "url('/assets/stopthebus.jpg')",
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#000',
-        backgroundColor: '#DAF5F3'
-      },
+    }), __jsx("style", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47,
+        lineNumber: 45,
+        columnNumber: 11
+      }
+    }, `
+            body {
+              padding: 0;
+              margin: 0;
+              height: 100vh;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              color: #000;
+              background-color: #DAF5F3;
+              background-image: url(assets/stopthebus-L.jpg);
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center center;
+            }
+            @media (max-width: 768px) {
+              body {
+                background-image: url(assets/stopthebus-M.jpg); /* Mobile background image */
+              }
+            }
+          `)), __jsx("body", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 70,
         columnNumber: 8
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62,
+        lineNumber: 72,
         columnNumber: 9
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63,
+        lineNumber: 73,
         columnNumber: 11
       }
     })));
