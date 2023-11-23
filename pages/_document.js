@@ -47,7 +47,7 @@ export default class MyDocument extends Document {
        <body style={{
           padding: 0,
           margin: 0,
-          backgroundImage: "url('/assets/stopthebus.jpg')",
+          backgroundImage: "url('/assets/stopthebus-L.jpg')",
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           height: '100vh',
