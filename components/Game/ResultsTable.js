@@ -203,7 +203,7 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
         //console.log(currentAlphabet);
         if (!formattedAnswer.startsWith(currentAlphabet.toLowerCase())) {
           console.log(`'${formattedAnswer}' does not start with the round letter '${currentAlphabet}'.`);
-          return -10; // Deduct points if it doesn't start with the round letter
+          return -3; // Deduct points if it doesn't start with the round letter
         }
 
 
@@ -233,6 +233,9 @@ const sumAllScores = (scores) => Object.keys(scores).map(cat => scores[cat]).red
     totalScore = gameState.users.reduce((total, user) => {
       return total + sumAllScores(scores[user.id] || {});
     }, 0);
+
+    totalScore = totalScore < 0 ? 0 : totalScore; // Set totalScore to zero if it's negative
+
   }
 
 
@@ -290,8 +293,7 @@ const sumAllScores = (scores) => Object.keys(scores).map(cat => scores[cat]).red
     </>
     )}
     <Container>
-    {`saved Score:`}
-      {totalScore}
+    
       {!scoreSubmitted ? <>
         <Button onClick={(event) => {
           event.preventDefault()
