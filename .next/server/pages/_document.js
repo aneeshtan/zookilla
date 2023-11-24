@@ -5,18 +5,26 @@ exports.id = 660;
 exports.ids = [660];
 exports.modules = {
 
-/***/ 835:
+/***/ 491:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ MyDocument)
-/* harmony export */ });
-/* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(859);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(518);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ MyDocument)
+});
+
+// EXTERNAL MODULE: ./node_modules/next/document.js
+var next_document = __webpack_require__(859);
+// EXTERNAL MODULE: external "styled-components"
+var external_styled_components_ = __webpack_require__(518);
+;// CONCATENATED MODULE: external "next-auth/react"
+const react_namespaceObject = require("next-auth/react");
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+;// CONCATENATED MODULE: ./pages/_document.js
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -28,19 +36,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_0__["default"] {
+
+
+const handleSignIn = () => signIn('google');
+
+const handleSignOut = () => signOut();
+
+const {
+  data: session
+} = (0,react_namespaceObject.useSession)();
+
+if (session) {// User is signed in
+} else {// User is not signed in
+}
+
+class MyDocument extends next_document["default"] {
   static async getInitialProps(ctx) {
-    const sheet = new styled_components__WEBPACK_IMPORTED_MODULE_1__.ServerStyleSheet();
+    const sheet = new external_styled_components_.ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
     try {
       ctx.renderPage = () => originalRenderPage({
-        enhanceApp: App => props => sheet.collectStyles( /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx(App, _objectSpread({}, props)))
+        enhanceApp: App => props => sheet.collectStyles( /*#__PURE__*/jsx_runtime_.jsx(App, _objectSpread({}, props)))
       });
 
-      const initialProps = await next_document__WEBPACK_IMPORTED_MODULE_0__["default"].getInitialProps(ctx);
+      const initialProps = await next_document["default"].getInitialProps(ctx);
       return _objectSpread(_objectSpread({}, initialProps), {}, {
-        styles: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        styles: /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
           children: [initialProps.styles, sheet.getStyleElement()]
         })
       });
@@ -50,26 +72,26 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 
   render() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(next_document__WEBPACK_IMPORTED_MODULE_0__.Html, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(next_document__WEBPACK_IMPORTED_MODULE_0__.Head, {
-        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("link", {
+    return /*#__PURE__*/(0,jsx_runtime_.jsxs)(next_document.Html, {
+      children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(next_document.Head, {
+        children: [/*#__PURE__*/jsx_runtime_.jsx("link", {
           rel: "stylesheet",
           href: "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("meta", {
+        }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
           charset: "utf-8"
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("link", {
+        }), /*#__PURE__*/jsx_runtime_.jsx("link", {
           rel: "icon",
           href: "./favicon.ico"
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("meta", {
+        }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
           name: "theme-color",
           content: "#000000"
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("meta", {
+        }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
           name: "title",
           content: "Zookilla games"
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("meta", {
+        }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
           name: "description",
           content: "Play zookilla with your friends"
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("style", {
+        }), /*#__PURE__*/jsx_runtime_.jsx("style", {
           children: `
             body {
               padding: 0;
@@ -93,8 +115,8 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_0__["default"] {
             }
           `
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("body", {
-        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx(next_document__WEBPACK_IMPORTED_MODULE_0__.Main, {}), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx(next_document__WEBPACK_IMPORTED_MODULE_0__.NextScript, {})]
+      }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("body", {
+        children: [/*#__PURE__*/jsx_runtime_.jsx(next_document.Main, {}), /*#__PURE__*/jsx_runtime_.jsx(next_document.NextScript, {})]
       })]
     });
   }
@@ -173,7 +195,7 @@ module.exports = require("styled-components");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [859], () => (__webpack_exec__(835)));
+var __webpack_exports__ = __webpack_require__.X(0, [859], () => (__webpack_exec__(491)));
 module.exports = __webpack_exports__;
 
 })();

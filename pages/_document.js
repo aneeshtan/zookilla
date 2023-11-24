@@ -1,7 +1,15 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from "styled-components";
- 
- 
+import { signIn, signOut, useSession } from 'next-auth/react';
+
+const handleSignIn = () => signIn('google');
+const handleSignOut = () => signOut();
+const { data: session } = useSession();
+if (session) {
+  // User is signed in
+} else {
+  // User is not signed in
+}
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
@@ -69,6 +77,7 @@ export default class MyDocument extends Document {
        <body >
           
         <Main />
+        
           <NextScript />
         </body>
       </Html>
