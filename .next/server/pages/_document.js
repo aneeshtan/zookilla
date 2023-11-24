@@ -61,9 +61,6 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_0__["default"] {
           rel: "icon",
           href: "./favicon.ico"
         }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("meta", {
-          name: "viewport",
-          content: "width=device-width, initial-scale=1"
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("meta", {
           name: "theme-color",
           content: "#000000"
         }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("meta", {

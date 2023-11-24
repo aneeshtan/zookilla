@@ -85,27 +85,9 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
 
   const [currentScore, setCurrentScore] = useState(initialScore);
  
-  const [gameData, setGameData] = useState({
-    currentScore: initialScore,
-    animalsSet: new Set(),
-    namesSet: new Set(),
-    thingsSet: new Set(),
-    placesSet: new Set(),
-    
-    booksSet: new Set(),
-    celebritiesSet: new Set(),
-    fruitsSet: new Set(),
-    instrumentsSet: new Set(),
-    moviesSet: new Set(),
-    musiciansSet: new Set(),
-    songsSet: new Set(),
-    tv_showsSet: new Set(),
-    musiciansSet: new Set(),
 
-
-
-  });
   const parseCSV = async (filePath) => {
+    try {
     const response = await fetch(filePath);
     const reader = response.body.getReader();
     const result = await reader.read();
@@ -119,43 +101,30 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
         error: reject
       });
     });
-  };
+
+
+  } catch (error) {
+    console.error(`Error parsing CSV from ${filePath}:`, error);
+    throw error; // Propagate the error
+  }
+};  
+
+ 
 
   useEffect(() => {
-    const categories = ['animals', 'places', 'names', 'things', 'books', 'songs', 'tv_shows', 'movies', 'instruments', 'musicians', 'fruits'];
-    
-    const categoryPromises = categories.map(category =>
-      parseCSV(`/csv/${category}.csv`).then(data => ({
-        [`${category}Set`]: new Set(data.map(item => item.toLowerCase().trim()))
-      }))
-    );
-  
-    Promise.all(categoryPromises).then(results => {
-      const newGameData = results.reduce((acc, currentSet) => {
-        return { ...acc, ...currentSet };
-      }, {});
-  
-      setGameData(prevGameData => ({
-        ...prevGameData,
-        ...newGameData
-      }));
-    });
-  }, []);
-
-  useEffect(() => {
-    if(gameState.scoringType === "ai" && gameData.animalsSet.size > 0) {
+    if(gameState.scoringType === "ai") {
       scoreEntriesAI();
     }
-  }, [gameState, round, gameData.animalsSet, gameData.namesSet, gameData.thingsSet, gameData.placesSet]); // Add animalsSet as a dependency
+  }, [gameState, round]); // Add animalsSet as a dependency
   
 
 
   const scoreEntriesAI = async () => {
 
-    if (gameData.animalsSet.size === 0) {
-      console.log("Waiting for animalsSet to be populated...");
-      return; // Exit if animalsSet is not ready
-    }
+   // if (gameData.animalsSet.size === 0) {
+    //  console.log("Waiting for animalsSet to be populated...");
+    //  return; // Exit if animalsSet is not ready
+   // }
 
     const newScores = {};
     for (const category of categories) {
@@ -174,22 +143,11 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
 
   const getScoreFromAPI = async (category, answer,gameState) => {
     try {
-        const formattedAnswer = answer.toLowerCase().trim();
-        const categorySets = {
-          Animal: gameData.animalsSet,
-          Name: gameData.namesSet,
-          Thing: gameData.thingsSet,
-          Place: gameData.placesSet,
-          Songs: gameData.songsSet,
-          TV_shows: gameData.tv_showsSet,
-          Books: gameData.booksSet,
-          Celebrities: gameData.celebritiesSet,
-          Musicians: gameData.musiciansSet,
-          Instruments: gameData.instrumentsSet,
-        };
-        
-        let categorySet = categorySets[category] || new Set();
+    const formattedAnswer = answer.toLowerCase().trim();
+    const csvData = await parseCSV(`/csv/${category}.csv`);
+    const categorySet = new Set(csvData.map(item => item.toLowerCase().trim()));
 
+ 
         let isExactMatch = false;
         let isSimilarMatch = false;
 
@@ -266,7 +224,7 @@ const sumAllScores = (scores) => Object.keys(scores).map(cat => scores[cat]).red
           <span> Score: {scores[user.id] && scores[user.id][category]}</span>
         </div>
       ))}
-      <h3 style={{ 'text-align': 'center' }} >Total Score: {Object.values(scores[user.id] || {}).reduce((a, b) => a + b, 0)}</h3>
+      <h3 >Total Score: {Object.values(scores[user.id] || {}).reduce((a, b) => a + b, 0)}</h3>
     </Paper>
   ))}
 </TableContainer>

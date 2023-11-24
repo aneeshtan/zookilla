@@ -52,14 +52,21 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
     Thing: true,
     Songs: false,
     Movies: false,
-    "TV shows": false,
+    "TV_shows": false,
     Fruits: false,
     //Vegetables: false,
     Books: false,
     //Subjects: false,
     Celebrities: false,
     Musicians: false,
-    Instruments: false
+    Instruments: false,
+    
+    Colors: false,
+    Countries: false,
+
+    "English_Verb": false,
+    "English_Adj": false,
+
   })
 
   const generateRandomCode = (length) => {
@@ -137,10 +144,17 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
           </FlexContainer>
           <h4>Select Topics:</h4>
           <FlexContainer style={{ maxWidth: "450px" }}>
-              <MultiSelect multiple value={selectedCategories} onChange={(event) => {
-                const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
-                setSelectedCategories(selectedOptions);
-              }}>
+              <MultiSelect multiple value={selectedCategories}  onChange={(event) => {
+  const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
+  setSelectedCategories(selectedOptions);
+
+  // Update the categories state
+  const updatedCategories = { ...categories };
+  Object.keys(updatedCategories).forEach(cat => {
+    updatedCategories[cat] = selectedOptions.includes(cat);
+  });
+  setCategories(updatedCategories);
+}}>
                 {Object.keys(categories).map(cat => (
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
