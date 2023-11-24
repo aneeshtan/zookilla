@@ -1,1 +1,9 @@
-{"/_app":"static/dUh55pqqNy7UwkoEJXQQg/pages/_app.js","/_document":"static/dUh55pqqNy7UwkoEJXQQg/pages/_document.js","/_error":"static/dUh55pqqNy7UwkoEJXQQg/pages/_error.js","/index":"static/dUh55pqqNy7UwkoEJXQQg/pages/index.html","/privacy":"static/dUh55pqqNy7UwkoEJXQQg/pages/privacy.html","/":"static/dUh55pqqNy7UwkoEJXQQg/pages/index.html","/404":"static/dUh55pqqNy7UwkoEJXQQg/pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.html",
+  "/privacy": "pages/privacy.html",
+  "/404": "pages/404.html"
+}
