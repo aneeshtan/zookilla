@@ -1,15 +1,9 @@
 {
-<<<<<<< HEAD
-  "/_document": "pages/_document.js",
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
-  "/_app": "pages/_app.js",
-=======
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
->>>>>>> f453bd1 (back)
-  "/_error": "pages/_error.js",
-  "/privacy": "pages/privacy.html",
   "/": "pages/index.html",
+  "/_error": "pages/_error.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/privacy": "pages/privacy.html",
   "/404": "pages/404.html"
 }

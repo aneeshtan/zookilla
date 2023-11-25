@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"version":3,"routes":{},"dynamicRoutes":{},"preview":{"previewModeId":"0ea1f9790b2408ff35a9fe0ffa654198","previewModeSigningKey":"4597179f1fed6eb956262d694d8e98b207b8af3d6a1a90f744475f269fb747c0","previewModeEncryptionKey":"fe0d55f4ad322e131a0deba96d82dc5a0958087ad2dd6e3fd2f3a1f9c8830ef9"},"notFoundRoutes":[]}
-=======
-{"version":3,"routes":{},"dynamicRoutes":{},"preview":{"previewModeId":"bbf2fd866134cb8fc599d3fb59eaa7a3","previewModeSigningKey":"052bb61021a24bdd32afe6d359ae23ee5d98114da5adf05f9566b354a50f2d89","previewModeEncryptionKey":"7e37cba182be733fccd99500b4d9d1efc5135866294f3284a08edfceca4a4306"},"notFoundRoutes":[]}
->>>>>>> f453bd1 (back)
+{"version":3,"routes":{},"dynamicRoutes":{},"preview":{"previewModeId":"77b61065403aed3c68c68192de68f93e","previewModeSigningKey":"c743a61848c4024f6a68ca8c1f6949de75dc8e3db4149cb1ca3d9bac078e0fdb","previewModeEncryptionKey":"1c540144d9d4f9a3a0930e835c746167e3f353d3b5db67610dd4fa992fe3d21d"},"notFoundRoutes":[]}
