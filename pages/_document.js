@@ -34,8 +34,7 @@ export default class MyDocument extends Document {
         <Head>
            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
-          <meta charset="utf-8" />
-          <link rel="icon" href="./favicon.ico" />
+           <link rel="icon" href="./favicon.ico" />
           <meta name="theme-color" content="#000000" />
 
           <meta name="title" content="Zookilla games"></meta>

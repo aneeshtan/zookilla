@@ -55,8 +55,6 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_0__["default"] {
         children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("link", {
           rel: "stylesheet",
           href: "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("meta", {
-          charset: "utf-8"
         }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx("link", {
           rel: "icon",
           href: "./favicon.ico"
