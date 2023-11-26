@@ -63,6 +63,7 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
     
     Colors: false,
     Countries: false,
+    Brand: false,
 
     "Verbs": false,
     "Adjectives": false,
