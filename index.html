@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Zookilla</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #343a40;
+            color: white;
+        }
+        .container {
+            padding-top: 50px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .game-card, .coming-soon-card {
+            margin-bottom: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .coming-soon-card::before {
+            content: '?';
+            font-size: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.5;
+        }
+        .coming-soon-card::after {
+            content: 'Coming Soon';
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+        .coming-soon-card:hover {
+            filter: blur(2px);
+        }
+        .mission-statement {
+            font-size: 0.8rem;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+ .intro-box {
+    background: url('assets/back-stop-the-bus.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+    color: white; /* Adjust text color for visibility */
+}
+
+/* Additional styling */
+.container {
+    padding-top: 50px;
+}
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+            <!-- Logo Placement -->
+    <div class="container text-center mt-4">
+        <img src="assets/zookillalogo.png" alt="Zookilla Logo" style="max-width: 240px;">
+        <!-- ... Rest of your page content ... -->
+    </div>
+        <h1>Welcome to Zookilla</h1>
+        <p class="lead">Explore a variety of games to test your skills and have fun!</p>
+
+        <div class="row">
+            <div class="col-md-6 game-card">
+                <!-- Intro Box with Photo Background -->
+                
+                <div class="intro-box">
+                    <p>.</p>
+                    <p>.</p>
+                    <p>.</p>
+                    <p>.</p>
+                    <p>.</p>
+                </div>
+
+                <h3>Stop the Bus</h3>
+                <p>Challenge your knowledge and speed in this exciting game!</p>
+                <a href="https://zookilla.com/out/" class="btn btn-primary btn-lg">Play Stop the Bus</a>
+                <!-- ... Rest of your page content ... -->
+            </div>
+
+            <div class="col-md-6 game-card coming-soon-card">
+                <!-- Content is generated using CSS pseudo-elements -->
+            </div>
+        </div>
+
+        <div class="mission-statement">
+            <p>
+                Zookilla stands at the forefront of educational gaming, offering a unique online platform for learning English and other languages through play. Our mission is to revolutionize the educational game landscape by introducing innovative and interactive experiences that make learning both fun and effective. With our flagship "Name Animal Place Thing game," users engage in a playful yet educational journey, diving into the fascinating world of words and languages.
+            
+                Our online games are specially designed for language learning, blending the excitement of gameplay with the intricacies of language skills. Whether you are looking to enhance your English vocabulary, improve your grammatical skills, or simply play with words in a fun and interactive environment, Zookilla provides an enriching experience. Our educational games cover a wide array of topics and categories, making them perfect for learners of all ages and backgrounds.
+            
+                The "Name Animal Place Thing game" is a prime example of how we integrate fun with learning. This game challenges players to think creatively and quickly, expanding their vocabulary and language comprehension in an engaging way. It's not just an online game for learning English; it's a portal to explore various languages and cultures through interactive play.
+            
+                At Zookilla, we are committed to keeping our educational games free and accessible to all. We understand the importance of breaking down barriers in education, particularly in language learning. Our platform is designed to be inclusive and supportive, offering a range of games that cater to different learning styles and preferences. Whether you are a student, a language enthusiast, or someone looking to play with words and improve your language skills, Zookilla is your go-to destination for the best in educational gaming.
+            
+                Join us on this exciting journey to master languages, play with words, and enjoy the thrill of learning through our diverse and engaging online games. With Zookilla, language learning is not just educational; it's an adventure filled with fun and discovery.
+            </p>
+                    </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
