@@ -115,16 +115,11 @@ const ResultsTable = ({ gameState, round, handleSubmitScore, scoreSubmitted, sco
     if(gameState.scoringType === "ai") {
       scoreEntriesAI();
     }
-  }, [gameState, round]); // Add animalsSet as a dependency
+  }, [gameState, round]); 
   
 
 
   const scoreEntriesAI = async () => {
-
-   // if (gameData.animalsSet.size === 0) {
-    //  console.log("Waiting for animalsSet to be populated...");
-    //  return; // Exit if animalsSet is not ready
-   // }
 
     const newScores = {};
     for (const category of categories) {

@@ -64,8 +64,10 @@ const Create = ({ cancel, setGameData, setGamePlaying }) => {
     Colors: false,
     Countries: false,
 
-    "English_Verb": false,
-    "English_Adj": false,
+    "Verbs": false,
+    "Adjectives": false,
+    "Abstract N": false,
+    "Concrete N": false,
 
   })
 
