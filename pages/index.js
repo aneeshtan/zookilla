@@ -9,7 +9,8 @@ export default function Home() {
       <Head>
         <title>Zookilla! | Online Multiplayer Game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1062467239332682"
+     crossorigin="anonymous"></script>
         <link rel="icon" href="https://zookilla.com/favicon.ico" />
       </Head>
 
