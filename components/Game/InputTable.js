@@ -38,7 +38,7 @@ const Paper = styled.div`
 const InputTable = ({ sendResponse, timerValue, categories }) => {
   const [response, setResponse] = useState({});
 
-  if (timerValue === 60) {
+  if (timerValue === 120) {
     sendResponse(response)
   }
   return <Paper>

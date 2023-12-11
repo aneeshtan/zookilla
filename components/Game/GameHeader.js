@@ -70,11 +70,11 @@ const GameHeader = ({ roundNumber, timerValue, currentAlphabet, maxRounds, sound
     };
   }, []);
 
-  if (tickingSound && timerValue === 49 && soundOn) {
+  if (tickingSound && timerValue === 110 && soundOn) {
     playAudio(tickingSound)
   }
 
-  if (!soundOn || timerValue === 60) {
+  if (!soundOn || timerValue === 120) {
     pauseAudio(tickingSound)
   }
 
